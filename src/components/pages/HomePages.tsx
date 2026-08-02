@@ -1,10 +1,10 @@
 import React from "react";
 import Hero from "@/components/section/hero/Hero";
 import About from "@/components/section/about/About";
-import Skills from "@/components/section/skills/Skills";
-import Projects from "@/components/section/projects/Projects";
-import Experience from "@/components/section/experience/Experience";
-import Contact from "@/components/section/contact/Contact";
+import Skills from "@/components/section/services/ServicesPreview";
+import Projects from "@/components/section/projects/ProjectsPreview";
+import Experience from "@/components/section/Collaboration/collaboration";
+
 import Temoignages from "../section/temoignages/temoignages";
 
 const Home = () => {
@@ -30,10 +30,6 @@ const Home = () => {
         <Experience />
       </section>
       <Temoignages />
-
-      <section id="contact">
-        <Contact />
-      </section>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 // src/components/ModalPortal.tsx
 import React, { useEffect, useRef, useCallback } from "react";
 import { createPortal } from "react-dom";
+import { X } from "lucide-react";
 
 const ANIM_DURATION = 260;
 
@@ -21,9 +22,11 @@ export default function ModalPortal({
   const focusFirst = useCallback(() => {
     const root = contentRef.current;
     if (!root) return;
+
     const focusable = root.querySelectorAll<HTMLElement>(
-      'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+      'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])',
     );
+
     if (focusable.length > 0) {
       (focusable[0] as HTMLElement).focus();
     } else {
@@ -51,22 +54,27 @@ export default function ModalPortal({
         clearTimeout(visibleTimeout.current);
         visibleTimeout.current = null;
       }
+
       document.removeEventListener("keydown", handleKey);
       document.body.style.overflow = prevOverflow;
     };
   }, [onClose, onKeyDown, focusFirst]);
 
   if (!isClient) return null;
+
   const modalRoot = document.body;
 
   const handleKeyDownInside = (e: React.KeyboardEvent) => {
     if (e.key !== "Tab" || !contentRef.current) return;
+
     const focusable = Array.from(
       contentRef.current.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
-      )
+        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])',
+      ),
     );
+
     if (focusable.length === 0) return;
+
     const first = focusable[0];
     const last = focusable[focusable.length - 1];
 
@@ -80,7 +88,9 @@ export default function ModalPortal({
   };
 
   const handleBackdropClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) onClose();
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
   };
 
   return createPortal(
@@ -108,14 +118,31 @@ export default function ModalPortal({
           ref={closeBtnRef}
           onClick={() => onClose()}
           aria-label="Fermer"
-          className="absolute right-3 top-3 z-[1220] bg-black/60 border border-white/10 text-white px-3 py-2 rounded-lg cursor-pointer backdrop-blur-sm hover:bg-black/80 transition"
+          className="
+            absolute
+            right-3
+            top-3
+            z-[1220]
+            p-2
+            rounded-full
+            bg-black/60
+            border
+            border-white/10
+            text-white
+            cursor-pointer
+            backdrop-blur-sm
+            transition
+            duration-300
+            hover:bg-black/80
+            hover:rotate-90
+          "
         >
-          ✕
+          <X size={22} strokeWidth={2.5} />
         </button>
 
         {children}
       </div>
     </div>,
-    modalRoot
+    modalRoot,
   );
 }

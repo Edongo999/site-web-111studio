@@ -13,7 +13,12 @@ export interface Project {
   results?: string;
   link?: string;
   medias: Media[];
-  category?: "Mariage" | "Anniversaire" | "Portrait" | "Événement" | "Artistique";
+  category?:
+    | "Mariage"
+    | "Anniversaire"
+    | "Portrait"
+    | "Événement"
+    | "Artistique";
   cardId: string; // ✅ identifiant unique
 }
 
@@ -26,13 +31,24 @@ type Props = {
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: "easeOut" } }
+  visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: "easeOut" } },
 };
 
-const textContainer: Variants = { hidden: {}, visible: { transition: { staggerChildren: 0.3 } } };
-const textItem: Variants = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } };
+const textContainer: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.3 } },
+};
+const textItem: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
 
-const ProjectCard: React.FC<Props> = ({ project, onSelectMedia, isVertical = false, registerVideo }) => {
+const ProjectCard: React.FC<Props> = ({
+  project,
+  onSelectMedia,
+  isVertical = false,
+  registerVideo,
+}) => {
   const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -41,13 +57,18 @@ const ProjectCard: React.FC<Props> = ({ project, onSelectMedia, isVertical = fal
 
   useEffect(() => {
     if (isPaused || project.medias.length <= 1) return;
-    const interval = setInterval(() => setCurrentIndex((p) => (p + 1) % project.medias.length), 6000);
+    const interval = setInterval(
+      () => setCurrentIndex((p) => (p + 1) % project.medias.length),
+      6000,
+    );
     return () => clearInterval(interval);
   }, [isPaused, project.medias.length]);
 
   useEffect(() => {
     if (registerVideo) registerVideo(videoRef.current);
-    return () => { if (registerVideo) registerVideo(null); };
+    return () => {
+      if (registerVideo) registerVideo(null);
+    };
   }, [registerVideo, currentIndex]);
 
   const currentMedia = project.medias[currentIndex];
@@ -57,13 +78,13 @@ const ProjectCard: React.FC<Props> = ({ project, onSelectMedia, isVertical = fal
     Mariage: "bg-pink-500 text-white",
     Anniversaire: "bg-green-500 text-white",
     Portrait: "bg-blue-500 text-white",
-    "Événement": "bg-purple-500 text-white",
-    Artistique: "bg-orange-500 text-white"
+    Événement: "bg-purple-500 text-white",
+    Artistique: "bg-orange-500 text-white",
   };
 
   return (
     <motion.article
-      data-card-id={project.cardId}   // ✅ ajouté pour navigation depuis Expériences
+      data-card-id={project.cardId} // ✅ ajouté pour navigation depuis Expériences
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"
@@ -78,51 +99,93 @@ const ProjectCard: React.FC<Props> = ({ project, onSelectMedia, isVertical = fal
       {/* Badge catégorie */}
       {project.category && (
         <div className="absolute top-3 left-3 z-20">
-          <span className={`inline-block px-3 py-1 text-xs font-semibold rounded-full shadow-sm ${categoryColors[project.category] || "bg-gray-500 text-white"}`}>
+          <span
+            className={`inline-block px-3 py-1 text-xs font-semibold rounded-full shadow-sm ${categoryColors[project.category] || "bg-gray-500 text-white"}`}
+          >
             {t(`projects.categories.${project.category.toLowerCase()}`)}
           </span>
         </div>
       )}
 
       {/* Media preview */}
-      <div className={`relative group w-full ${isVertical ? "" : "sm:w-2/5"} ${previewHeight} flex-shrink-0`}
-        onTouchStart={() => setShowOverlay(true)} onTouchEnd={() => setShowOverlay(false)}>
+      <div
+        className={`relative group w-full ${isVertical ? "" : "sm:w-2/5"} ${previewHeight} flex-shrink-0`}
+        onTouchStart={() => setShowOverlay(true)}
+        onTouchEnd={() => setShowOverlay(false)}
+      >
         {currentMedia.type === "video" ? (
-          <video ref={videoRef} src={currentMedia.src} className="w-full h-full object-cover" autoPlay muted loop playsInline controls={false} />
+          <video
+            ref={videoRef}
+            src={currentMedia.src}
+            className="w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            controls={false}
+          />
         ) : (
-          <img src={currentMedia.src} alt={project.title} className={`w-full h-full ${isVertical ? "object-cover" : "object-contain bg-black"}`} />
+          <img
+            src={currentMedia.src}
+            alt={project.title}
+            className={`w-full h-full ${isVertical ? "object-cover" : "object-contain bg-black"}`}
+          />
         )}
 
         {/* Overlay bouton Voir */}
-        <div className={`absolute inset-0 bg-black/40 transition-opacity duration-300 flex items-center justify-center 
-            ${showOverlay ? "opacity-100" : "opacity-0"} sm:opacity-0 sm:group-hover:opacity-100`}>
-          <button onClick={(e) => { e.stopPropagation(); onSelectMedia(currentMedia); }}
-            className="px-5 py-1 rounded-lg font-semibold bg-white text-black transition-all duration-200 hover:bg-yellow-400 hover:text-white active:bg-purple-800 active:text-yellow-200">
+        <div
+          className={`absolute inset-0 bg-black/40 transition-opacity duration-300 flex items-center justify-center 
+            ${showOverlay ? "opacity-100" : "opacity-0"} sm:opacity-0 sm:group-hover:opacity-100`}
+        >
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onSelectMedia(currentMedia);
+            }}
+            className="px-5 py-1 rounded-lg font-semibold bg-white text-black transition-all duration-200 hover:bg-yellow-400 hover:text-white active:bg-purple-800 active:text-yellow-200"
+          >
             {t("projects.view")}
           </button>
         </div>
       </div>
 
       {/* Texte */}
-      <motion.div variants={textContainer}
+      <motion.div
+        variants={textContainer}
         className={`flex flex-col justify-start flex-grow 
-          ${isVertical ? "p-3 space-y-1 sm:p-5 sm:space-y-3 md:p-7 md:space-y-5" 
-                       : "p-3 space-y-2 sm:p-6 sm:space-y-4 md:p-10 md:space-y-5 sm:w-3/5 sm:pl-10"}`}>
-
+          ${
+            isVertical
+              ? "p-3 space-y-1 sm:p-5 sm:space-y-3 md:p-7 md:space-y-5"
+              : "p-3 space-y-2 sm:p-6 sm:space-y-4 md:p-10 md:space-y-5 sm:w-3/5 sm:pl-10"
+          }`}
+      >
         {/* Titre */}
-        <motion.h3 variants={textItem} className={`font-bold text-yellow-300 
-            ${isVertical ? "text-base md:text-lg mb-1" : "text-sm sm:text-lg mb-2"}`}>
+        <motion.h3
+          variants={textItem}
+          className={`font-bold text-yellow-300 
+            ${isVertical ? "text-base md:text-lg mb-1" : "text-sm sm:text-lg mb-2"}`}
+        >
           {project.title}
         </motion.h3>
 
         {/* Description */}
-        <motion.p variants={textItem} className="text-gray-300 text-sm md:text-base mb-2">
+        <motion.p
+          variants={textItem}
+          className="text-gray-300 text-sm md:text-base  leading-relaxed
+    text-justify
+    hyphens-auto
+    break-normal
+    [overflow-wrap:break-word]mb-2"
+        >
           {project.description}
         </motion.p>
 
         {/* Résultats */}
         {project.results && (
-          <motion.p variants={textItem} className="text-sm md:text-base text-green-400">
+          <motion.p
+            variants={textItem}
+            className="text-sm md:text-base text-green-400"
+          >
             Résultats : {project.results}
           </motion.p>
         )}

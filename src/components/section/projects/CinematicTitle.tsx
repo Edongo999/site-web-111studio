@@ -8,9 +8,13 @@ interface CinematicTitleProps {
   className?: string;
 }
 
-export default function CinematicTitle({ textKey, imageUrl, className }: CinematicTitleProps) {
+export default function CinematicTitle({
+  textKey,
+  imageUrl,
+  className,
+}: CinematicTitleProps) {
   const { t } = useTranslation();
-  const bg = imageUrl ?? "/images/fumée.jfif";
+  const bg = imageUrl ?? "/images/service.webp";
 
   return (
     <div
@@ -25,14 +29,14 @@ export default function CinematicTitle({ textKey, imageUrl, className }: Cinemat
           filter: [
             "blur(3px) brightness(95%) contrast(95%)",
             "blur(5px) brightness(105%) contrast(105%)",
-            "blur(3px) brightness(95%) contrast(95%)"
-          ]
+            "blur(3px) brightness(95%) contrast(95%)",
+          ],
         }}
         transition={{
           duration: 8,
           ease: "easeInOut",
           repeat: Infinity,
-          repeatType: "mirror"
+          repeatType: "mirror",
         }}
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${bg})` }}

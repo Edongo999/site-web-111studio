@@ -1,93 +1,190 @@
 {
-  "nav": {
-    "hero": "Accueil",
-    "about": "À propos",
-    "skills": "Compétences",
-    "projects": "Réalisations",
-    "experience": "Expériences",
-    "contact": "Contact",
-    "close": "Fermer"
+"nav": {
+  "hero": "Accueil",
+  "about": "À propos",
+  "services": "Nos services",
+  "projects": "Réalisations",
+  "testimonials": "Témoignages",
+  "contact": "Contact",
+  "close": "Fermer"
+},
+
+
+"hero": {
+  "title": "Bienvenue chez 111 STUDIO",
+  "slogans": [
+    "Donnez vie à vos souvenirs",
+    "Immortalisez vos instants précieux",
+    "Votre image, notre passion",
+    "Photographie, Vidéographie & Branding"
+  ],
+  "description": "Nous donnons vie à vos projets à travers la photographie, la vidéographie et le branding. Notre mission est de capturer l’émotion et l’authenticité de chaque instant, tout en créant une identité visuelle forte et élégante pour votre entreprise ou vos événements.",
+  "btnPhotos": "Découvrir nos réalisations",
+  "btnContact": "Entrer en contact",
+  "linkedinTooltip": "Notre profil LinkedIn",
+  "facebookTooltip": "Notre page Facebook",
+  "instagramTooltip": "Notre galerie Instagram",
+  "tiktokTooltip": "Nos vidéos TikTok",
+  "linkedinUrl": "https://www.linkedin.com/company/111studio",
+  "facebookUrl": "https://www.facebook.com/111studio",
+  "instagramUrl": "https://www.instagram.com/111studio",
+  "tiktokUrl": "https://www.tiktok.com/@111studio",
+  "imageAlt": "Présentation de 111 STUDIO, experts en photographie et vidéographie"
+},
+"about": {
+  "title": "À PROPOS DE 111 STUDIO",
+  "subtitle": "Votre histoire mérite d’être racontée avec élégance et authenticité",
+  "mainImage": "/images/about.jpg",
+  "mainImageAlt": "Image principale corporate",
+  "secondaryPhoto": "/images/hero8.jpg",
+  "secondaryPhotoAlt": "Photographie secondaire",
+  "secondaryVideo": "/videos/hero2.mp4",
+  "secondaryVideoAlt": "Vidéographie secondaire",
+ "paragraph1": "111 STUDIO est une agence créative spécialisée dans la photographie, la vidéographie et le branding. Nous accompagnons les entreprises et les particuliers dans la construction d’une image forte et moderne, en mettant notre expertise au service de projets visuels qui inspirent confiance et reflètent une identité unique.",
+    "paragraph2": "Notre équipe est composée de professionnels passionnés qui allient créativité, rigueur technique et sens du détail afin de produire des contenus premium. Nous croyons que l’image est un levier puissant pour raconter une histoire, valoriser une marque et marquer les esprits.",
+  "list": {
+    "item1": "Une équipe créative et professionnelle dédiée à vos projets",
+    "item2": "Expertise en photographie, vidéographie et branding",
+    "item3": "Solutions visuelles adaptées aux entreprises et événements",
+    "item4": "Engagement pour la qualité et l’authenticité"
   },
-  "hero": {
-    "greeting": "Bonjour, je suis",
-    "name1": "CamFocus",
-    "name2": "JORDAN",
-    "name3": "Photographe",
-    "role1": "Photographe",
-    "description": "Je capture des instants uniques et les transforme en images qui racontent une histoire. Mon objectif est de révéler l’émotion, la beauté et l’authenticité de chaque moment, en créant des souvenirs visuels élégants et intemporels. À travers mon objectif, j’offre une expérience artistique qui sublime les détails et donne vie aux projets, qu’il s’agisse de portraits, d’événements ou de créations visuelles sur mesure.",
-    "btnPhotos": "Plonger dans ma galerie",
-    "btnContact": "Me contacter",
-    "linkedinTooltip": "Mon profil LinkedIn",
-    "facebookTooltip": "Mon profil Facebook",
-    "instagramTooltip": "Mon profil Instagram",
-    "tiktokTooltip": "Mon profil TikTok",
-    "imageAlt": "Portrait de YOKONO SOUKI, photographe"
+  "buttonPortfolio": "Découvrir nos réalisations",
+  "buttonBooking": "Réserver une séance",
+  "buttonBookingLink": "https://wa.me/237672894669"
+},
+
+
+ 
+ 
+  "servicesHero": {
+    "title": "NOS SERVICES PREMIUM",
+    "slogans": {
+      "0": "Immortalisez vos moments uniques",
+      "1": "Des images qui marquent les esprits",
+      "2": "Créativité et expertise au service de votre vision"
+    },
+    "intro": "111 STUDIO accompagne les entreprises et les particuliers avec des prestations visuelles haut de gamme. Notre expertise couvre la photographie, la vidéographie, la retouche, le branding et la création de contenu afin de valoriser votre image et marquer les esprits.",
+    "cta": "Découvrir tous nos services"
   },
-  "about": {
-    "title": "À propos de moi",
-    "subtitle": "Qui suis-je ?",
-    "intro": "Passionné par la photographie, je mets mon regard artistique et ma sensibilité au service de chaque projet. Mon objectif est de transformer des instants uniques en images intemporelles, capables de transmettre une émotion et de raconter une histoire.",
-    "point1": "Capturer des portraits authentiques qui révèlent la personnalité.",
-    "point2": "Immortaliser les événements pour en conserver des souvenirs vivants.",
-    "point3": "Créer des compositions visuelles élégantes et artistiques.",
-    "point4": "Mettre en valeur les détails et la lumière pour sublimer chaque image.",
-    "goal": "Mon ambition est d’offrir une expérience photographique unique, où chaque cliché devient un souvenir précieux et une œuvre à part entière.",
-    "cta": "Réalisons vos projets ensemble",
-    "valuesTitle": "Mes valeurs",
-    "values": {
-      "creativity": "Créativité visuelle",
-      "portfolio": "Galerie inspirante",
-      "technique": "Maîtrise technique",
-      "storytelling": "Narration visuelle",
-      "quality": "Qualité premium",
-      "emotion": "Émotion authentique"
-    }
-  },
-  "skills": {
-    "title": "Mes Compétences",
-    "intro": "À travers mon objectif, je cherche à capturer l’authenticité des instants et à transformer chaque image en une œuvre qui raconte une histoire. Mon savoir-faire allie créativité, technique et sensibilité artistique pour offrir des visuels uniques et mémorables.",
+    "servicesPreview": {
     "photography": {
       "title": "Photographie",
-      "item1": "Capturer des portraits expressifs",
-      "item2": "Immortaliser vos événements",
-      "item3": "Créer des compositions artistiques"
+      "description": "Des images professionnelles pour capturer vos moments, vos produits et votre identité."
+    },
+
+    "videography": {
+      "title": "Vidéographie",
+      "description": "Des vidéos créatives pour raconter votre histoire et donner vie à vos projets."
+    },
+
+    "branding": {
+      "title": "Branding & Identité visuelle",
+      "description": "Une identité visuelle forte et cohérente pour valoriser votre marque."
+    }
+  },
+
+
+  "servicesPage": {
+    "title": "Des solutions visuelles adaptées à vos besoins",
+    "intro": "Nous combinons créativité et expertise technique pour offrir des services qui valorisent votre image et captivent votre audience. Chaque projet est conçu pour raconter une histoire, transmettre des émotions et créer un impact durable.",
+    
+    "photography": {
+      "title": "Photographie",
+      "item1": "Portraits professionnels et expressifs",
+      "item2": "Couverture complète de vos événements",
+      "item3": "Shooting corporate et artistique"
+    },
+    "videography": {
+      "title": "Vidéographie",
+      "item1": "Captation de vidéos événementielles",
+      "item2": "Production de clips promotionnels",
+      "item3": "Montage et storytelling visuel"
     },
     "editing": {
       "title": "Retouche & Post‑production",
-      "item1": "Sublimer les couleurs et la lumière",
-      "item2": "Corriger les détails avec précision",
-      "item3": "Donner une atmosphère unique à chaque image"
+      "item1": "Optimisation des couleurs et de la lumière",
+      "item2": "Correction précise des détails",
+      "item3": "Création d’ambiances uniques"
     },
-    "technique": {
-      "title": "Technique & Matériel",
-      "item1": "Maîtrise de la lumière naturelle et artificielle",
-      "item2": "Utilisation experte des objectifs",
-      "item3": "Réglages professionnels pour chaque contexte"
+    "branding": {
+      "title": "Branding & Identité visuelle",
+      "item1": "Développement d’une image de marque forte",
+      "item2": "Supports visuels adaptés à vos besoins",
+      "item3": "Design cohérent et impactant"
     },
-    "storytelling": {
-      "title": "Narration Visuelle",
-      "item1": "Construire des reportages captivants",
-      "item2": "Créer des séries thématiques cohérentes",
-      "item3": "Transmettre des émotions à travers l’image"
+    "contentCreation": {
+      "title": "Création de contenu",
+      "item1": "Conception de contenus originaux pour réseaux sociaux",
+      "item2": "Campagnes digitales engageantes",
+      "item3": "Production de formats adaptés à chaque plateforme"
     },
-    "showMore": "Voir plus",
-    "showLess": "Voir moins"
+    "studio": {
+      "title": "Studio cinéma & télévision",
+      "item1": "Production audiovisuelle professionnelle",
+      "item2": "Plateaux TV et cinéma équipés",
+      "item3": "Accompagnement complet pour vos projets"
+    },
+    "events": {
+      "title": "Événementiel",
+      "item1": "Couverture photo et vidéo d’événements",
+      "item2": "Création de contenus live",
+      "item3": "Solutions visuelles pour conférences et spectacles"
+    },
+    
+    "cta": "Demander un devis"
+  }, 
+  "packs": {
+    "title": "Nos Packs Exclusifs",
+    "intro": "Des formules pensées pour répondre à vos besoins spécifiques, avec créativité et professionnalisme.",
+    "wedding": {
+      "title": "Pack Mariage Élégance",
+      "slogan": "Immortalisez chaque instant précieux",
+      "item1": "Photographie complète (préparatifs, cérémonie, soirée)",
+      "item2": "Vidéographie avec montage storytelling",
+      "item3": "Retouche premium incluse"
+    },
+    "corporate": {
+      "title": "Pack Corporate Excellence",
+      "slogan": "Valorisez l’image de votre entreprise",
+      "item1": "Portraits professionnels pour l’équipe",
+      "item2": "Couverture d’événements d’entreprise",
+      "item3": "Vidéo institutionnelle + branding visuel"
+    },
+    "branding": {
+      "title": "Pack Branding Créatif",
+      "slogan": "Construisez une identité visuelle forte",
+      "item1": "Shooting produits",
+      "item2": "Retouche & post‑production créative",
+      "item3": "Identité visuelle cohérente pour réseaux sociaux"
+    }
+},
+
+  "contactCTA": {
+    "title": "Prêt à collaborer avec nous ?",
+    "cta": "Demander un devis"
   },
-  "projects": {
-    "title": "Mes Réalisations",
-    "intro": "Mon parcours en photographie et en vidéo m’a permis de couvrir une large gamme d’événements, incluant mariages, anniversaires, baptêmes et reportages artistiques. Mon objectif constant est d’immortaliser vos instants précieux à travers des images et des films qui racontent une histoire, afin de vous offrir des souvenirs uniques et intemporels.",
-    "view": "Voir",
-    "role": "Rôle",
-    "results": "Résultats",
-    "impact": "Impact",
-    "tools": "Outils",
-    "categories": {
-      "mariage": "Mariage",
-      "anniversaire": "Anniversaire",
-      "portrait": "Portrait",
-      "événement": "Événement",
-      "artistique": "Artistique"
-    },
+
+
+
+"projects": {
+  "title": "NOS REALISATIONS",
+ "title1": "Notre savoir‑faire en un seul regard",
+  "intro": "Nous créons des projets visuels qui vont au‑delà de la photographie et de la vidéographie. Notre expertise inclut également le branding et la création de contenus sur mesure, afin de renforcer l’identité de nos clients et de valoriser leur image. Chaque réalisation est pensée pour raconter une histoire, transmettre des émotions et offrir un support de communication puissant et mémorable.",
+ "intro1": "Explorez nos réalisations et laissez‑vous inspirer par la diversité de nos projets. Nous capturons les moments uniques des particuliers et prestataires – mariages, portraits, anniversaires ou événements – pour transformer chaque instant en souvenir mémorable. Nous accompagnons aussi les entreprises dans la création de contenus visuels et de projets de branding qui reflètent leur identité et leurs valeurs. Chaque réalisation est pensée pour raconter une histoire, transmettre une émotion et mettre en lumière ce qui vous rend unique",
+  "view": "Voir",
+  "role": "Rôle",
+  "results": "Résultats",
+  "impact": "Impact",
+  "tools": "Outils",
+  "viewAll": "Voir toutes nos réalisations",
+  "categories": {
+    "preview": "Découvrez la diversité de nos projets",
+    "mariage": "Mariage",
+    "anniversaire": "Anniversaire",
+    "portrait": "Portrait",
+    "événement": "Événement",
+    "artistique": "Artistique"
+  },
     "items": {
       "mariage1": {
         "title": "Mariage – Préparatifs & cérémonie",
@@ -252,7 +349,9 @@
         "cardId": "evenement-2"
       }
     }
-  },
+    
+ },
+ 
   "media": {
     "prev": "Précédent",
     "next": "Suivant",
@@ -264,6 +363,7 @@
   "modal": {
     "close": "Fermer"
   },
+   
   "experience": {
     "title": "Mes expériences",
     "viewPhotos": "Voir les photos",
@@ -438,42 +538,148 @@
       }
     ]
   },
-  "contact": {
-    "title": "Contactez-moi",
-    "intro": "Vous souhaitez immortaliser un mariage, un anniversaire, un portrait ou un projet artistique ? Je suis disponible pour échanger sur vos idées et vous accompagner dans la réalisation de vos souvenirs en images. Contactez-moi via le formulaire ou directement par téléphone ou email.",
-    "location": "Douala, Cameroun",
-    "facebook": "Ma page Facebook",
-    "instagram": "Mon profil Instagram",
-    "tiktok": "Mon compte TikTok",
-    "email": "camfocusjordan@gmail.com",
-    "phone": "(+237) 659 32 21 37 ",
-    "phone1": "(+237) 697 50 39 43",
-    "form": {
-      "name": "Votre nom",
-      "email": "Votre email",
-      "phone": "Votre téléphone",
-      "service": "Type de séance photo",
-      "details": "Décrivez votre projet ou événement...",
-      "send": "Envoyer",
-      "success": "Message envoyé avec succès",
-      "error": "Une erreur est survenue"
+  
+  "approach": {
+  "title": "NOTRE APPROCHE",
+  "description": "Chaque projet commence par une idée. Nous la transformons en images, en vidéos et en contenus qui donnent vie à votre vision.",
+  "steps": {
+    "understand": {
+      "title": "Comprendre",
+      "description": "Nous prenons le temps de comprendre votre projet, votre identité et vos objectifs afin de construire une direction adaptée à vos besoins."
+    },
+    "design": {
+      "title": "Concevoir",
+      "description": "Nous imaginons une direction visuelle cohérente avec votre univers, votre image et votre audience."
+    },
+    "produce": {
+      "title": "Produire",
+      "description": "Nous réalisons vos photos, vidéos et contenus avec une attention particulière portée à la créativité et aux détails."
+    },
+    "enhance": {
+      "title": "Sublimer",
+      "description": "La retouche, le montage et la post-production permettent d'apporter la touche finale et de donner toute sa force à votre projet."
+    }
+    }
+    },
+
+  "temoignages": {
+    "title": "ILS NOUS FONT CONFIANCE",
+    "hint": "Swipe pour naviguer →",
+    "items": {
+      "1": {
+        "nom": "Louann & Julien",
+        "texte": "Les photos de notre mariage sont sublimes. Tu as su capturer chaque émotion et chaque détail, nous revivons cette journée à travers ton travail.",
+        "type": "Mariage"
+      },
+      "2": {
+        "nom": "Florence & Frédéric",
+        "texte": "Nous avons été bluffés par ton professionnalisme et ta discrétion. Les clichés sont naturels et pleins de vie, exactement ce que nous voulions.",
+        "type": "Mariage"
+      },
+      "3": {
+        "nom": "Ghislain",
+        "texte": "Un shooting portrait incroyable. Je me suis senti à l’aise dès le début et le résultat est au‑delà de mes attentes. Les photos reflètent parfaitement ma personnalité.",
+        "type": "Portrait"
+      },
+      "4": {
+        "nom": "Sophie",
+        "texte": "Merci pour les magnifiques photos de mon anniversaire. Tu as su immortaliser les moments forts et les sourires de mes proches. Un souvenir précieux.",
+        "type": "Anniversaire"
+      },
+      "5": {
+        "nom": "Entreprise E-Technology",
+        "texte": "Les photos de notre conférence ont donné une image moderne et professionnelle de notre société. Tes clichés sont devenus un vrai atout pour notre communication.",
+        "type": "Événement"
+      },
+      "6": {
+        "nom": "Nicola",
+        "texte": "Ton approche artistique est unique. Les photos de mon shooting sont originales et pleines de créativité. Je suis ravie du résultat.",
+        "type": "Artistique"
+      }
     }
   },
-  "footer": {
-    "nav": {
-      "home": "Accueil",
-      "about": "À propos",
-      "projects": "Réalisations",
-      "experiences": "Expériences",
-      "contact": "Contact"
-    },
-    "portfolio": "Portfolio de",
-    "company": "E‑Technology",
-    "rights": "Tous droits réservés",
-    "socials": {
-      "facebook": "Facebook",
-      "instagram": "Instagram",
-      "tiktok": "TikTok"
+   
+     
+
+  "contact": {
+    "shootingTitle": "Avez‑vous besoin d’un",
+    "shootingWord": "shooting",
+    "description": "Que ce soit pour un mariage, un événement corporate ou un projet artistique, notre équipe est à votre écoute pour vos projets photo, vidéo et branding. Remplissez le formulaire ci‑dessous ou contactez‑nous directement via nos coordonnées.",
+    "teamAlt": "111 Studio Team",
+    "intro": "Pour vos projets photo, vidéo et branding, notre équipe est disponible pour vous accompagner.",
+    "email": "contact@111studio.com",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "whatsapp": "+237 672 89 46 69",
+    "phone": "+237 689 36 30 34",
+    "location": "Douala, Cameroun",
+    "form": {
+      "name": "Nom complet",
+      "email": "Adresse email",
+      "phone": "Téléphone",
+      "service": "Service demandé (ex: shooting, vidéo...)",
+      "details": "Décrivez votre projet",
+      "send": "Envoyer",
+      "success": "Message envoyé avec succès !",
+      "error": "Une erreur est survenue, veuillez réessayer."
     }
-  }
+  },
+  "contactHero": {
+    "title": "Contactez‑nous",
+    "slogans": {
+      "0": "Un projet photo ou vidéo ?",
+      "1": "Demandez un devis personnalisé",
+      "2": "Nous sommes disponibles pour vos événements"
+    },
+    "cta": "Envoyer un message"
+  },
+    
+ "footer": {
+  "logo": "111 STUDIO",
+  "description": "Studio créatif spécialisé en photographie, vidéographie, branding et création de contenu",
+
+  "navigation": {
+    "title": "Navigation",
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Nos services",
+    "portfolio": "Nos réalisations",
+    "contact": "Contact"
+  },
+  "services": {
+  "title": "Services",
+  "photography": "Photographie",
+  "videography": "Vidéographie",
+  "branding": "Branding & Identité visuelle",
+  "content": "Création de contenu"
+},
+ 
+ 
+
+  "contact": {
+    "title": "Contact",
+    "email": "contact@111studio.com",
+    "phone1": "237699999999",
+    "phone1_display": "+237 6 99 99 99 99",
+    "phone2": "237677777777",
+    "phone2_display": "+237 6 77 77 77 77",
+    "location": "Douala, Cameroun"
+  },
+
+  "social": {
+    "facebook": "https://facebook.com/111studio",
+    "instagram": "https://instagram.com/111studio",
+    "tiktok": "https://www.tiktok.com/@111studio",
+    "linkedin": "https://linkedin.com/company/111studio"
+  },
+
+  "company": "Site conçu par HG Jordan Studio",
+  "rights": "Tous droits réservés"
+}
+
+
+
+
+
 }

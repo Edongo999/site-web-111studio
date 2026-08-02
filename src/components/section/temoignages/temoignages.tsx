@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { temoignages } from "@/components/section/temoignages/temoignagesData"; // ✅ données séparées
+import { temoignages } from "@/components/section/temoignages/temoignagesData";
+import { useTranslation } from "react-i18next";
 
 const Temoignages: React.FC = () => {
+  const { t } = useTranslation();
   const [index, setIndex] = useState(0);
   const [showArrows, setShowArrows] = useState(false);
   const [showHint, setShowHint] = useState(true);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null); // ✅ correction
 
   const startAutoPlay = () => {
     if (!intervalRef.current) {
@@ -30,13 +32,14 @@ const Temoignages: React.FC = () => {
   }, []);
 
   const next = () => setIndex((prev) => (prev + 1) % temoignages.length);
-  const prev = () => setIndex((prev) => (prev - 1 + temoignages.length) % temoignages.length);
+  const prev = () =>
+    setIndex((prev) => (prev - 1 + temoignages.length) % temoignages.length);
 
   return (
     <section className="py-12 bg-gray-900" id="temoignages">
       <div className="max-w-4xl mx-auto px-6 text-center relative">
-        <h2 className="text-2xl sm:text-4xl font-bold mb-10 px-3 py-1 rounded-lg text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-orange-200 to-violet-500 animate-gradient-x">
-          Ce que disent mes clients
+        <h2 className="text-2xl sm:text-3xl font-bold mb-10 px-3 py-1 rounded-lg text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-orange-200 to-violet-500 animate-gradient-x">
+          {t("temoignages.title")}
         </h2>
 
         <div
@@ -50,7 +53,6 @@ const Temoignages: React.FC = () => {
             setTimeout(() => setShowArrows(false), 3000);
             startAutoPlay();
           }}
-          // ✅ Ajout pour desktop
           onMouseEnter={() => {
             stopAutoPlay();
             setShowArrows(true);
@@ -94,17 +96,21 @@ const Temoignages: React.FC = () => {
                 <div className="relative w-42 h-42 rounded-full border-4 border-orange-500 overflow-hidden shadow-lg">
                   <img
                     src={temoignages[index].image}
-                    alt={temoignages[index].nom}
+                    alt={t(`temoignages.items.${temoignages[index].id}.nom`)} // ✅ correction
                     className="w-full h-full object-cover"
                   />
                 </div>
               </div>
 
               <p className="italic text-gray-200 mb-6 text-lg leading-relaxed">
-                “{temoignages[index].texte}”
+                “{t(`temoignages.items.${temoignages[index].id}.texte`)}”
               </p>
-              <h3 className="font-semibold text-xl text-white">{temoignages[index].nom}</h3>
-              <span className="text-sm text-gray-400">{temoignages[index].type}</span>
+              <h3 className="font-semibold text-xl text-white">
+                {t(`temoignages.items.${temoignages[index].id}.nom`)}
+              </h3>
+              <span className="text-sm text-gray-400">
+                {t(`temoignages.items.${temoignages[index].id}.type`)}
+              </span>
             </motion.div>
           </AnimatePresence>
 
@@ -136,7 +142,9 @@ const Temoignages: React.FC = () => {
                 key={i}
                 onClick={() => setIndex(i)}
                 className={`w-3 h-3 rounded-full transition ${
-                  i === index ? "bg-orange-500 scale-110" : "bg-gray-500 hover:bg-orange-400"
+                  i === index
+                    ? "bg-orange-500 scale-110"
+                    : "bg-gray-500 hover:bg-orange-400"
                 }`}
               />
             ))}
@@ -150,7 +158,7 @@ const Temoignages: React.FC = () => {
               transition={{ duration: 0.5 }}
               className="text-sm text-gray-400 italic mt-2"
             >
-              Swipe pour naviguer →
+              {t("temoignages.hint")}
             </motion.div>
           )}
         </div>

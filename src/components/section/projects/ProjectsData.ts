@@ -151,23 +151,23 @@ export const useProjectsData = (): Project[] => {
       description: t("projects.items.portrait1.description"),
       results: t("projects.items.portrait1.results"),
       medias: [
+        { type: "image", src: "/images/Portrait1/portrait0.webp" },
+        { type: "image", src: "/images/Portrait1/portrait1.webp" },
+        { type: "image", src: "/images/Portrait1/portrait2.webp" },
+        { type: "image", src: "/images/Portrait1/portrait3.webp" },
+        { type: "image", src: "/images/Portrait1/portrait4.webp" },
+        { type: "image", src: "/images/Portrait1/portrait5.webp" },
+        { type: "image", src: "/images/Portrait1/portrait6.webp" },
+        { type: "image", src: "/images/Portrait1/portrait7.webp" },
+        { type: "image", src: "/images/Portrait1/portrait8.webp" },
+        { type: "image", src: "/images/Portrait1/portrait9.webp" },
         { type: "image", src: "/images/Portrait1/portrait10.webp" },
         { type: "image", src: "/images/Portrait1/portrait11.webp" },
         { type: "image", src: "/images/Portrait1/portrait12.webp" },
         { type: "image", src: "/images/Portrait1/portrait13.webp" },
         { type: "image", src: "/images/Portrait1/portrait14.webp" },
         { type: "image", src: "/images/Portrait1/portrait15.webp" },
-        { type: "image", src: "/images/Portrait1/portrait16.webp" },
-        { type: "image", src: "/images/Portrait1/portrait17.webp" },
-        { type: "image", src: "/images/Portrait1/portrait18.webp" },
-        { type: "image", src: "/images/Portrait1/portrait19.webp" },
-        { type: "image", src: "/images/Portrait1/portrait101.webp" },
-        { type: "image", src: "/images/Portrait1/portrait102.webp" },
-        { type: "image", src: "/images/Portrait1/portrait103.webp" },
-        { type: "image", src: "/images/Portrait1/portrait104.webp" },
-        { type: "image", src: "/images/Portrait1/portrait105.webp" },
-        { type: "image", src: "/images/Portrait1/portrait106.webp" },
-        { type: "image", src: "/images/Portrait1/portrait107.webp" }
+        { type: "image", src: "/images/Portrait1/portrait16.webp" }
 
       ],
       category: "Portrait",
@@ -259,7 +259,9 @@ export const useProjectsData = (): Project[] => {
       title: t("projects.items.anniversaire1.title"),
       description: t("projects.items.anniversaire1.description"),
       results: t("projects.items.anniversaire1.results"),
-      medias: [{ type: "image", src: "/images/Anniversaire1/anniv10.webp" }],
+      medias: [{ type: "image", src: "/images/Anniversaire1/anniv10.webp" },
+        { type: "image", src: "/images/Anniversaire1/anniv11.webp" }
+      ],
       category: "Anniversaire",
       cardId: "anniversaire-0"
     },
@@ -267,7 +269,11 @@ export const useProjectsData = (): Project[] => {
       title: t("projects.items.anniversaire2.title"),
       description: t("projects.items.anniversaire2.description"),
       results: t("projects.items.anniversaire2.results"),
-      medias: [{ type: "image", src: "/images/Anniversaire2/anniv2.webp" }],
+      medias: [
+        { type: "image", src: "/images/Anniversaire2/anniv3.webp" },
+        { type: "image", src: "/images/Anniversaire2/anniv1.webp" }
+
+      ],
       category: "Anniversaire",
       cardId: "anniversaire-1"
     },
@@ -275,7 +281,10 @@ export const useProjectsData = (): Project[] => {
       title: t("projects.items.anniversaire3.title"),
       description: t("projects.items.anniversaire3.description"),
       results: t("projects.items.anniversaire3.results"),
-      medias: [{ type: "image", src: "/images/Anniversaire3/anniv3.webp" }],
+      medias: [{ type: "image", src: "/images/Anniversaire3/anniv3.webp" },
+        { type: "image", src: "/images/Anniversaire3/anniv1.webp" },
+        { type: "image", src: "/images/Anniversaire3/anniv2.webp" }
+      ],
       category: "Anniversaire",
       cardId: "anniversaire-2"
     },

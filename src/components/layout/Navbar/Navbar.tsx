@@ -12,26 +12,32 @@ export default function Navbar() {
   const { t } = useTranslation();
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-orange-600 text-white flex justify-between items-center px-4 md:px-8 py-4 shadow-md z-50">
-      {/* Logo */}
-      <div className="text-2xl font-bold">HG.</div>
+    <nav className="fixed top-0 left-0 w-full bg-orange-600 text-white px-4 md:px-8 h-17 shadow-md z-50 flex items-center">
+      <div className="flex items-center justify-between w-full">
+        {/* Logo */}
+        {/* Logo texte temporaire */}
+        <div className="text-2xl font-bold tracking-wide">111 STUDIO</div>
 
-      {/* Menu desktop */}
-      <div className="hidden md:flex items-center space-x-8">
-        <NavLinks />
-        <LanguageSelector />
-      </div>
+        {/* Menus déplacés vers la gauche, juste après le logo */}
+        <div className="hidden md:flex items-center ml-12 space-x-4">
+          <NavLinks />
+        </div>
 
-      {/* Hamburger mobile */}
-      <div className="md:hidden flex items-center space-x-8 pr-16">
-        <LanguageSelector />
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="p-2 rounded focus:outline-none focus:ring-2 focus:ring-white"
-          style={{ zIndex: 30 }}
-        >
-          {menuOpen ? <X size={32} /> : <Menu size={32} />}
-        </button>
+        {/* Sélecteur de langue à droite */}
+        <div className="flex items-center">
+          <LanguageSelector />
+        </div>
+
+        {/* Hamburger mobile */}
+        <div className="md:hidden flex items-center space-x-4">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="p-2 rounded focus:outline-none focus:ring-2 focus:ring-white"
+            style={{ zIndex: 30 }}
+          >
+            {menuOpen ? <X size={32} /> : <Menu size={32} />}
+          </button>
+        </div>
       </div>
 
       {/* Full-screen menu mobile */}
@@ -44,13 +50,10 @@ export default function Navbar() {
             animate="visible"
             exit="hidden"
           >
-            {/* Overlay cliquable */}
             <div
               className="absolute inset-0"
               onClick={() => setMenuOpen(false)}
             />
-
-            {/* Contenu du menu */}
             <motion.div
               className="relative flex flex-col justify-center items-center text-2xl h-full space-y-6 px-6"
               initial={{ y: 50, opacity: 0 }}
@@ -62,7 +65,7 @@ export default function Navbar() {
               }}
             >
               <NavLinks vertical onClick={() => setMenuOpen(false)} />
-
+              <LanguageSelector />
               <button
                 onClick={() => setMenuOpen(false)}
                 className="mt-8 px-6 py-2 bg-white text-purple-700 rounded-lg shadow hover:bg-purple-100 transition"

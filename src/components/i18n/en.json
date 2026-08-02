@@ -1,13 +1,13 @@
 {
-  "nav": {
-    "hero": "Home",
-    "about": "About",
-    "skills": "Skills",
-    "projects": "Projects",
-    "experience": "Experience",
-    "contact": "Contact",
-    "close": "Close"
-  },
+"nav": {
+  "hero": "Home",
+  "about": "About Us",
+  "services": "Our Services",
+  "projects": "Projects",
+  "contact": "Contact",
+  "close": "Close"
+},
+
   "hero": {
     "greeting": "Hello, I am",
     "name1": "CamFocus",
