@@ -14,12 +14,14 @@ export interface Project {
   link?: string;
   medias: Media[];
   category?:
-    | "Mariage"
-    | "Anniversaire"
-    | "Portrait"
-    | "Événement"
-    | "Artistique";
-  cardId: string; // ✅ identifiant unique
+    | "wedding"
+    | "birthday"
+    | "portrait"
+    | "event"
+    | "artistic"
+    | "shooting"
+    | "branding";
+  cardId: string;
 }
 
 type Props = {
@@ -30,17 +32,42 @@ type Props = {
 };
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: "easeOut" } },
+  hidden: {
+    opacity: 0,
+    y: 30,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1.2,
+      ease: "easeOut",
+    },
+  },
 };
 
 const textContainer: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.3 } },
+  visible: {
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
 };
+
 const textItem: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  hidden: {
+    opacity: 0,
+    y: 20,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
 };
 
 const ProjectCard: React.FC<Props> = ({
@@ -50,66 +77,141 @@ const ProjectCard: React.FC<Props> = ({
   registerVideo,
 }) => {
   const { t } = useTranslation();
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
+
   const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  /* ================================
+     🔹 SLIDER DES MÉDIAS
+  ================================= */
 
   useEffect(() => {
     if (isPaused || project.medias.length <= 1) return;
-    const interval = setInterval(
-      () => setCurrentIndex((p) => (p + 1) % project.medias.length),
-      6000,
-    );
+
+    const interval = setInterval(() => {
+      setCurrentIndex(
+        (previousIndex) => (previousIndex + 1) % project.medias.length,
+      );
+    }, 6000);
+
     return () => clearInterval(interval);
   }, [isPaused, project.medias.length]);
 
+  /* ================================
+     🔹 ENREGISTREMENT VIDÉO
+  ================================= */
+
   useEffect(() => {
-    if (registerVideo) registerVideo(videoRef.current);
+    if (registerVideo) {
+      registerVideo(videoRef.current);
+    }
+
     return () => {
-      if (registerVideo) registerVideo(null);
+      if (registerVideo) {
+        registerVideo(null);
+      }
     };
   }, [registerVideo, currentIndex]);
 
   const currentMedia = project.medias[currentIndex];
-  const previewHeight = isVertical ? "h-55 md:h-65" : "h-72 sm:h-70 md:h-89";
+
+  /* ================================
+     🔹 HAUTEUR DU MEDIA
+  ================================= */
+
+  const previewHeight = isVertical
+    ? "h-64 sm:h-72 md:h-70"
+    : "h-80 sm:h-80 md:h-96";
+
+  /* ================================
+     🔹 COULEURS DES CATÉGORIES
+  ================================= */
 
   const categoryColors: Record<string, string> = {
-    Mariage: "bg-pink-500 text-white",
-    Anniversaire: "bg-green-500 text-white",
-    Portrait: "bg-blue-500 text-white",
-    Événement: "bg-purple-500 text-white",
-    Artistique: "bg-orange-500 text-white",
+    wedding: "bg-pink-500 text-white",
+    birthday: "bg-green-500 text-white",
+    portrait: "bg-blue-500 text-white",
+    event: "bg-purple-500 text-white",
+    artistic: "bg-orange-500 text-white",
+
+    // 🔹 Nouvelles catégories
+    shooting: "bg-red-500 text-white",
+    branding: "bg-indigo-500 text-white",
   };
 
   return (
     <motion.article
-      data-card-id={project.cardId} // ✅ ajouté pour navigation depuis Expériences
+      data-card-id={project.cardId}
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.6 }}
-      className={`relative rounded-lg overflow-hidden bg-gray-800 border border-gray-800 shadow-md transition-transform duration-300 ease-in-out hover:scale-[1.01] 
-        ${isVertical ? "flex flex-col h-[23rem] sm:h-[29rem]" : "flex flex-col sm:flex-row items-stretch min-h-[22rem]"}`}
+      viewport={{
+        once: true,
+        amount: 0.6,
+      }}
+      className={`
+        relative
+        rounded-lg
+        overflow-hidden
+        bg-gray-800
+        border
+        border-gray-800
+        shadow-md
+        transition-transform
+        duration-300
+        ease-in-out
+        hover:scale-[1.01]
+
+        ${
+          isVertical
+            ? "flex flex-col h-[29rem] sm:h-[34rem] md:h-[32rem]"
+            : "flex flex-col sm:flex-row items-stretch min-h-[26rem] sm:min-h-[22rem]"
+        }
+      `}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={() => setIsPaused(true)}
       onTouchEnd={() => setIsPaused(false)}
     >
-      {/* Badge catégorie */}
+      {/* ================================
+          🔹 BADGE CATÉGORIE
+      ================================= */}
+
       {project.category && (
         <div className="absolute top-3 left-3 z-20">
           <span
-            className={`inline-block px-3 py-1 text-xs font-semibold rounded-full shadow-sm ${categoryColors[project.category] || "bg-gray-500 text-white"}`}
+            className={`
+              inline-block
+              px-3
+              py-1
+              text-xs
+              font-semibold
+              rounded-full
+              shadow-sm
+              ${categoryColors[project.category] || "bg-gray-500 text-white"}
+            `}
           >
-            {t(`projects.categories.${project.category.toLowerCase()}`)}
+            {t(`projects.categories.${project.category}`)}
           </span>
         </div>
       )}
 
-      {/* Media preview */}
+      {/* ================================
+          🔹 MEDIA
+      ================================= */}
+
       <div
-        className={`relative group w-full ${isVertical ? "" : "sm:w-2/5"} ${previewHeight} flex-shrink-0`}
+        className={`
+          relative
+          group
+          w-full
+          ${isVertical ? "" : "sm:w-2/5"}
+          ${previewHeight}
+          flex-shrink-0
+        `}
         onTouchStart={() => setShowOverlay(true)}
         onTouchEnd={() => setShowOverlay(false)}
       >
@@ -128,65 +230,126 @@ const ProjectCard: React.FC<Props> = ({
           <img
             src={currentMedia.src}
             alt={project.title}
-            className={`w-full h-full ${isVertical ? "object-cover" : "object-contain bg-black"}`}
+            className={`
+              w-full
+              h-full
+              ${isVertical ? "object-cover" : "object-contain bg-black"}
+            `}
           />
         )}
 
-        {/* Overlay bouton Voir */}
+        {/* ================================
+            🔹 OVERLAY
+        ================================= */}
+
         <div
-          className={`absolute inset-0 bg-black/40 transition-opacity duration-300 flex items-center justify-center 
-            ${showOverlay ? "opacity-100" : "opacity-0"} sm:opacity-0 sm:group-hover:opacity-100`}
+          className={`
+            absolute
+            inset-0
+            bg-black/40
+            transition-opacity
+            duration-300
+            flex
+            items-center
+            justify-center
+            ${showOverlay ? "opacity-100" : "opacity-0"}
+            sm:opacity-0
+            sm:group-hover:opacity-100
+          `}
         >
           <button
             onClick={(e) => {
               e.stopPropagation();
               onSelectMedia(currentMedia);
             }}
-            className="px-5 py-1 rounded-lg font-semibold bg-white text-black transition-all duration-200 hover:bg-yellow-400 hover:text-white active:bg-purple-800 active:text-yellow-200"
+            className="
+              px-5
+              py-1
+              rounded-lg
+              font-semibold
+              bg-white
+              text-black
+              transition-all
+              duration-200
+              hover:bg-yellow-400
+              hover:text-white
+              active:bg-purple-800
+              active:text-yellow-200
+            "
           >
             {t("projects.view")}
           </button>
         </div>
       </div>
 
-      {/* Texte */}
+      {/* ================================
+          🔹 TEXTE
+      ================================= */}
+
       <motion.div
         variants={textContainer}
-        className={`flex flex-col justify-start flex-grow 
+        className={`
+          flex
+          flex-col
+          justify-start
+          flex-grow
+
           ${
             isVertical
-              ? "p-3 space-y-1 sm:p-5 sm:space-y-3 md:p-7 md:space-y-5"
-              : "p-3 space-y-2 sm:p-6 sm:space-y-4 md:p-10 md:space-y-5 sm:w-3/5 sm:pl-10"
-          }`}
+              ? "p-5 space-y-3 sm:p-6 sm:space-y-4 md:p-7 md:space-y-5"
+              : "p-4 space-y-3 sm:p-6 sm:space-y-4 md:p-10 md:space-y-5 sm:w-3/5 sm:pl-10"
+          }
+        `}
       >
         {/* Titre */}
+
         <motion.h3
           variants={textItem}
-          className={`font-bold text-yellow-300 
-            ${isVertical ? "text-base md:text-lg mb-1" : "text-sm sm:text-lg mb-2"}`}
+          className={`
+            font-bold
+            text-yellow-300
+
+            ${
+              isVertical
+                ? "text-lg md:text-lg mb-1"
+                : "text-base sm:text-lg mb-2"
+            }
+          `}
         >
           {project.title}
         </motion.h3>
 
         {/* Description */}
+
         <motion.p
           variants={textItem}
-          className="text-gray-300 text-sm md:text-base  leading-relaxed
-    text-justify
-    hyphens-auto
-    break-normal
-    [overflow-wrap:break-word]mb-2"
+          className="
+            text-gray-300
+            text-sm
+            md:text-base
+            leading-relaxed
+            text-justify
+            hyphens-auto
+            break-normal
+            [overflow-wrap:break-word]
+            mb-2
+          "
         >
           {project.description}
         </motion.p>
 
         {/* Résultats */}
+
         {project.results && (
           <motion.p
             variants={textItem}
-            className="text-sm md:text-base text-green-400"
+            className="
+              text-sm
+              md:text-base
+              text-green-400
+            "
           >
-            Résultats : {project.results}
+            {t("projects.results")}: {project.results}
           </motion.p>
         )}
       </motion.div>

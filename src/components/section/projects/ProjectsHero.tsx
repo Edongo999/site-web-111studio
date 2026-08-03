@@ -2,17 +2,21 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-const images = ["/images/hero7.jpg", "/images/hero9.jpg", "/images/hero10.jpg"];
-const slogans = [
-  "Mariages & souvenirs uniques",
-  "Branding & identité visuelle",
-  "Événements & projets artistiques",
+const images = [
+  "/images/hero/hero7.webp",
+  "/images/hero/hero9.webp",
+  "/images/hero/hero10.webp",
 ];
 
 const ProjectsHero: React.FC = () => {
   const { t } = useTranslation();
   const [index, setIndex] = useState(0);
   const [sloganIndex, setSloganIndex] = useState(0);
+
+  // ✅ Récupération du tableau de slogans depuis i18next
+  const slogans: string[] = t("projects.slogans", {
+    returnObjects: true,
+  }) as string[];
 
   // Changement d'image toutes les 7 secondes
   useEffect(() => {
@@ -28,7 +32,7 @@ const ProjectsHero: React.FC = () => {
       setSloganIndex((prev) => (prev + 1) % slogans.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [slogans]);
 
   return (
     <section className="relative h-[450px] flex items-center justify-center overflow-hidden">
@@ -59,7 +63,7 @@ const ProjectsHero: React.FC = () => {
           {t("projects.title")}
         </motion.h1>
 
-        {/* ✅ Slogan cyclique animé */}
+        {/* ✅ Slogan cyclique animé depuis i18next */}
         <AnimatePresence mode="wait">
           <motion.p
             key={sloganIndex}

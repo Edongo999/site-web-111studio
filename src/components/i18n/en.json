@@ -1,187 +1,280 @@
 {
-"nav": {
-  "hero": "Home",
-  "about": "About Us",
-  "services": "Our Services",
-  "projects": "Projects",
-  "contact": "Contact",
-  "close": "Close"
-},
-
+  "nav": {
+    "hero": "Home",
+    "about": "About",
+    "services": "Our Services",
+    "projects": "Portfolio",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "close": "Close"
+  },
   "hero": {
-    "greeting": "Hello, I am",
-    "name1": "CamFocus",
-    "name2": "JORDAN",
-    "name3": "Photographer",
-    "role1": "Photographer",
-    "description": "I capture unique moments and transform them into images that tell a story. My goal is to reveal the emotion, beauty and authenticity of each moment by creating timeless and elegant visual memories. Through my lens, I offer an artistic experience that enhances details and brings projects to life, whether portraits, events or bespoke visual creations.",
-    "btnPhotos": "Dive into my gallery",
-    "btnContact": "Contact me",
-    "linkedinTooltip": "My LinkedIn profile",
-    "facebookTooltip": "My Facebook profile",
-    "instagramTooltip": "My Instagram profile",
-    "tiktokTooltip": "My TikTok profile",
-    "imageAlt": "Portrait of YOKONO SOUKI, photographer"
+    "title": "Welcome to 111 STUDIO",
+    "slogans": [
+      "Bring your memories to life",
+      "Capture your precious moments",
+      "Your image, our passion",
+      "Photography, Videography & Branding"
+    ],
+    "description": "We bring your projects to life through photography, videography, and branding. Our mission is to capture the emotion and authenticity of every moment while creating a strong and elegant visual identity for your business or events.",
+    "btnPhotos": "Discover our portfolio",
+    "btnContact": "Get in touch",
+
+    "socialTooltips.linkedin": "Our LinkedIn profile",
+    "socialTooltips.facebook": "Our Facebook page",
+    "socialTooltips.instagram": "Our Instagram gallery",
+    "socialTooltips.tiktok": "Our TikTok videos",
+    "linkedinUrl": "https://www.linkedin.com/company/111studio",
+    "facebookUrl": "https://www.facebook.com/111studio",
+    "instagramUrl": "https://www.instagram.com/111studio",
+    "tiktokUrl": "https://www.tiktok.com/@111studio",
+    "imageAlt": "Presentation of 111 STUDIO, experts in photography and videography"
   },
   "about": {
-    "title": "About Me",
-    "subtitle": "Who am I ?",
-    "intro": "Passionate about photography, I bring my artistic eye and sensitivity to every project. My aim is to transform unique moments into timeless images capable of conveying emotion and telling a story.",
-    "point1": "Capture authentic portraits that reveal personality.",
-    "point2": "Immortalize events to preserve vivid memories.",
-    "point3": "Create elegant and artistic visual compositions.",
-    "point4": "Highlight details and light to enhance every image.",
-    "goal": "My ambition is to offer a unique photographic experience where each shot becomes a precious memory and a work of art.",
-    "cta": "Let's create your project together",
-    "valuesTitle": "My values",
-    "values": {
-      "creativity": "Visual creativity",
-      "portfolio": "Inspiring gallery",
-      "technique": "Technical mastery",
-      "storytelling": "Visual storytelling",
-      "quality": "Premium quality",
-      "emotion": "Authentic emotion"
-    }
+    "title": "ABOUT 111 STUDIO",
+    "subtitle": "Your story deserves to be told with elegance and authenticity",
+    "videoOpen": "Click to open",
+    "mainImage": "/images/about.jpg",
+    "mainImageAlt": "Main corporate image",
+    "secondaryPhoto": "/images/hero8.jpg",
+    "secondaryPhotoAlt": "Secondary photograph",
+    "secondaryVideo": "/videos/hero2.mp4",
+    "secondaryVideoAlt": "Secondary videography",
+    "paragraph1": "111 STUDIO is a creative agency specialized in photography, videography, and branding. We support businesses and individuals in building a strong and modern image, putting our expertise at the service of visual projects that inspire trust and reflect a unique identity.",
+    "paragraph2": "Our team is made up of passionate professionals who combine creativity, technical precision, and attention to detail to produce premium content. We believe that imagery is a powerful tool to tell a story, enhance a brand, and leave a lasting impression.",
+    "list": {
+      "item1": "A creative and professional team dedicated to your projects",
+      "item2": "Expertise in photography, videography, and branding",
+      "item3": "Visual solutions tailored to businesses and events",
+      "item4": "Commitment to quality and authenticity"
+    },
+    "buttonPortfolio": "Discover our portfolio",
+    "buttonBooking": "Book a session",
+    "buttonBookingLink": "https://wa.me/237672894669"
   },
-  "skills": {
-    "title": "My Skills",
-    "intro": "Through my lens, I seek to capture the authenticity of moments and transform each image into a work that tells a story. My expertise combines creativity, technique and artistic sensitivity to deliver unique and memorable visuals.",
+
+
+  "servicesHero": {
+    "title": "OUR PREMIUM SERVICES",
+    "slogans": {
+      "0": "Capture your unique moments",
+      "1": "Images that leave a lasting impression",
+      "2": "Creativity and expertise serving your vision"
+    },
+    "intro": "111 STUDIO supports businesses and individuals with high-end visual services. Our expertise covers photography, videography, editing, branding, and content creation to enhance your image and make a lasting impact.",
+    "cta": "Discover all our services"
+  },
+  "servicesPreview": {
     "photography": {
       "title": "Photography",
-      "item1": "Capture expressive portraits",
-      "item2": "Immortalize your events",
-      "item3": "Create artistic compositions"
+      "description": "Professional images to capture your moments, products, and identity."
+    },
+    "videography": {
+      "title": "Videography",
+      "description": "Creative videos to tell your story and bring your projects to life."
+    },
+    "branding": {
+      "title": "Branding & Visual Identity",
+      "description": "A strong and consistent visual identity to enhance your brand."
+    }
+  },
+  "servicesPage": {
+    "title": "Visual solutions tailored to your needs",
+    "intro": "We combine creativity and technical expertise to deliver services that enhance your image and captivate your audience. Each project is designed to tell a story, convey emotions, and create a lasting impact.",
+    "photography": {
+      "title": "Photography",
+      "item1": "Professional and expressive portraits",
+      "item2": "Comprehensive coverage of your events",
+      "item3": "Corporate and artistic photo shoots"
+    },
+    "videography": {
+      "title": "Videography",
+      "item1": "Event video coverage",
+      "item2": "Production of promotional clips",
+      "item3": "Editing and visual storytelling"
     },
     "editing": {
-      "title": "Retouching & Post‑production",
-      "item1": "Enhance colors and light",
-      "item2": "Precisely correct details",
-      "item3": "Give a unique atmosphere to each image"
+      "title": "Editing & Post-production",
+      "item1": "Color and lighting optimization",
+      "item2": "Precise detail correction",
+      "item3": "Creation of unique atmospheres"
     },
-    "technique": {
-      "title": "Technique & Equipment",
-      "item1": "Mastery of natural and artificial light",
-      "item2": "Expert use of lenses",
-      "item3": "Professional settings for every context"
+    "branding": {
+      "title": "Branding & Visual Identity",
+      "item1": "Development of a strong brand image",
+      "item2": "Visual materials tailored to your needs",
+      "item3": "Consistent and impactful design"
     },
-    "storytelling": {
-      "title": "Visual Storytelling",
-      "item1": "Build captivating photo reports",
-      "item2": "Create coherent thematic series",
-      "item3": "Convey emotions through images"
+    "contentCreation": {
+      "title": "Content Creation",
+      "item1": "Original content design for social media",
+      "item2": "Engaging digital campaigns",
+      "item3": "Production of formats adapted to each platform"
     },
-    "showMore": "See more",
-    "showLess": "See less"
+    "studio": {
+      "title": "Cinema & Television Studio",
+      "item1": "Professional audiovisual production",
+      "item2": "Equipped TV and film sets",
+      "item3": "Comprehensive support for your projects"
+    },
+    "events": {
+      "title": "Event Services",
+      "item1": "Photo and video coverage of events",
+      "item2": "Creation of live content",
+      "item3": "Visual solutions for conferences and shows"
+    },
+    "cta": "Request a quote"
   },
+  "packs": {
+    "title": "Our Exclusive Packages",
+    "intro": "Tailor-made offers designed to meet your specific needs with creativity and professionalism.",
+    "wedding": {
+      "title": "Elegant Wedding Package",
+      "slogan": "Capture every precious moment",
+      "item1": "Complete photography (preparations, ceremony, reception)",
+      "item2": "Videography with storytelling editing",
+      "item3": "Premium retouching included"
+    },
+    "corporate": {
+      "title": "Corporate Excellence Package",
+      "slogan": "Enhance your company’s image",
+      "item1": "Professional portraits for the team",
+      "item2": "Coverage of corporate events",
+      "item3": "Institutional video + visual branding"
+    },
+    "branding": {
+      "title": "Creative Branding Package",
+      "slogan": "Build a strong visual identity",
+      "item1": "Product photo shoots",
+      "item2": "Creative editing & post-production",
+      "item3": "Consistent visual identity for social media"
+    }
+  },
+  "contactCTA": {
+    "title": "Ready to collaborate with us?",
+    "cta": "Request a quote"
+  },
+
   "projects": {
-    "title": "My Works",
-    "intro": "My journey in photography and video has allowed me to cover a wide range of events, including weddings, birthdays, baptisms and artistic reports. My constant goal is to immortalize your precious moments through images and films that tell a story, offering you unique and timeless memories.",
+    "title": "OUR PROJECTS",
+    "title1": "Our expertise at a glance",
+    "intro": "We create visual projects that go beyond photography and videography. Our expertise also includes branding and tailor-made content creation, to strengthen our clients’ identity and enhance their image. Each project is designed to tell a story, convey emotions, and provide powerful and memorable communication support.",
+    "intro1": "Explore our projects and be inspired by the diversity of our work. We capture unique moments for individuals and service providers – weddings, portraits, birthdays, or events – turning each instant into a memorable memory. We also support businesses in creating visual content and branding projects that reflect their identity and values. Each project is designed to tell a story, convey emotion, and highlight what makes you unique.",
     "view": "View",
     "role": "Role",
     "results": "Results",
     "impact": "Impact",
     "tools": "Tools",
+    "viewAll": "View all our projects",
+    "slogans": [
+    "Weddings & unforgettable memories",
+    "Branding & visual identity",
+    "Events & artistic projects"
+  ],
     "categories": {
-      "mariage": "Weddings",
-      "anniversaire": "Birthdays",
-      "portrait": "Portraits",
-      "événement": "Events",
-      "artistique": "Artistic"
+      "preview": "Discover the diversity of our projects",
+      "wedding": "Wedding",
+      "birthday": "Birthday",
+      "portrait": "Portrait",
+      "event": "Event",
+      "artistic": "Artistic",
+      "shooting": "Pregnancy and couple shoot",
+      "branding": "Branding"
     },
     "items": {
       "mariage1": {
         "title": "Wedding – Preparations & Ceremony",
-        "description": "Capturing the intimate moments of preparation and the ceremony, with full photography of preparations and the couple's moments of complicity.",
-        "role": "Wedding photographer",
+        "description": "Capturing intimate moments of preparation and the ceremony, with complete photography of the preparations and the couple’s shared moments.",
+        "role": "Wedding Photographer",
         "results": "Photo album delivered in digital and print format.",
-        "impact": "Timeless memories for the newlyweds and their families.",
+        "impact": "Timeless memories for the couple and their families.",
         "tools": "Sony A7 IV, Lightroom",
-        "cardId": "mariage-0"
+        "cardId": "wedding-0"
       },
       "mariage2": {
         "title": "Wedding – Reception & Party",
-        "description": "Coverage of the reception and party, with photos of speeches, activities and festive moments of the evening.",
-        "role": "Wedding photographer",
-        "results": "Dynamic gallery of the key moments.",
-        "impact": "Highlighting emotions and atmosphere.",
+        "description": "Coverage of the reception and celebration, with photographs of speeches, entertainment, and festive moments of the evening.",
+        "role": "Wedding Photographer",
+        "results": "Dynamic gallery of highlights.",
+        "impact": "Showcasing emotions and atmosphere.",
         "tools": "Canon R5, Photoshop",
-        "cardId": "mariage-1"
+        "cardId": "wedding-1"
       },
       "mariage3": {
         "title": "Wedding – Couple Portraits",
         "description": "Artistic photo session of the couple, with posed and natural portraits in chosen settings.",
         "role": "Photographer",
         "results": "Artistic photos delivered in high resolution.",
-        "impact": "Showcasing love and complicity.",
+        "impact": "Highlighting love and complicity.",
         "tools": "Nikon Z6, Capture One",
-        "cardId": "mariage-2"
+        "cardId": "wedding-2"
       },
       "mariage4": {
         "title": "Wedding – Family & Guests",
-        "description": "Group photos and shots of guests, capturing smiles and shared moments.",
+        "description": "Group and guest photos, capturing smiles and shared moments.",
         "role": "Photographer",
         "results": "Collective album of loved ones.",
         "impact": "Precious memories for families.",
         "tools": "Sony A7 III",
-        "cardId": "mariage-3"
+        "cardId": "wedding-3"
       },
       "mariage5": {
         "title": "Wedding – Details & Decorations",
-        "description": "Photography of details and decorations, highlighting rings, bouquets, tables and decor.",
+        "description": "Photography of details and decorations, highlighting rings, bouquets, tables, and décor.",
         "role": "Photographer",
         "results": "Aesthetic gallery of details.",
-        "impact": "Refined memories for the newlyweds.",
+        "impact": "Refined memories for the couple.",
         "tools": "Canon EOS R",
-        "cardId": "mariage-4"
+        "cardId": "wedding-4"
       },
       "mariage6": {
-        "title": "Wedding – Full Reportage",
-        "description": "Complete wedding coverage, with photos from start to finish: preparations, ceremony, reception and party.",
+        "title": "Wedding – Complete Reportage",
+        "description": "Full coverage of the wedding, with photographs from start to finish: preparations, ceremony, reception, and party.",
         "role": "Photographer",
         "results": "Complete album delivered in a premium box.",
         "impact": "Comprehensive and timeless memories.",
         "tools": "Sony A7 IV, Lightroom",
-        "cardId": "mariage-5"
+        "cardId": "wedding-5"
       },
       "anniversaire1": {
         "title": "Birthday – Decoration & Atmosphere",
-        "description": "Photos of colorful decorations, balloons and the festive atmosphere.",
-        "role": "Event photographer",
-        "results": "A lively gallery that reflects the joy of the celebration.",
-        "impact": "Warm memories for the host and their family.",
+        "description": "Photos of colorful decorations, balloons, and festive atmosphere.",
+        "role": "Event Photographer",
+        "results": "Lively gallery reflecting the joy of the party.",
+        "impact": "Warm memories for the host and family.",
         "tools": "Canon R6",
-        "cardId": "anniversaire-0"
+        "cardId": "birthday-0"
       },
       "anniversaire2": {
         "title": "Birthday – Guest Portraits",
-        "description": "Spontaneous portraits of guests, capturing smiles, dances and friendly exchanges.",
+        "description": "Spontaneous portraits of guests, capturing smiles, dances, and friendly exchanges.",
         "role": "Photographer",
-        "results": "A convivial album of participants.",
-        "impact": "Shared memories among friends and family.",
+        "results": "Friendly album of participants.",
+        "impact": "Shared memories among friends and loved ones.",
         "tools": "Sony A7 III",
-        "cardId": "anniversaire-1"
+        "cardId": "birthday-1"
       },
       "anniversaire3": {
         "title": "Birthday – Key Moments",
-        "description": "Photos of key moments: cake, candles and activities, capturing the energy and joy of guests.",
+        "description": "Photos of key moments: cake, candles, and entertainment, capturing the energy and joy of guests.",
         "role": "Photographer",
         "results": "Gallery of memorable moments.",
-        "impact": "Memorable keepsakes for the host and their loved ones.",
+        "impact": "Unforgettable memories for the host and guests.",
         "tools": "Canon EOS R",
-        "cardId": "anniversaire-2"
+        "cardId": "birthday-2"
       },
       "portrait1": {
         "title": "Portrait – Studio",
-        "description": "Studio photo session with posed portraits taken under professional lighting.",
-        "role": "Portrait photographer",
+        "description": "Studio photo session, with posed portraits under professional lighting.",
+        "role": "Portrait Photographer",
         "results": "Artistic photos in high resolution.",
-        "impact": "Enhancement of identity and style.",
+        "impact": "Enhancing identity and style.",
         "tools": "Canon EOS R",
         "cardId": "portrait-0"
       },
       "portrait2": {
         "title": "Portrait – Outdoor",
-        "description": "Outdoor photo session with natural portraits in urban or rural settings.",
+        "description": "Outdoor photo session, with natural portraits in urban or countryside settings.",
         "role": "Photographer",
         "results": "Spontaneous and lively gallery.",
         "impact": "Authentic memories.",
@@ -190,328 +283,257 @@
       },
       "portrait3": {
         "title": "Portrait – Artistic",
-        "description": "Creative and original portraits, experimenting with light, colors and poses.",
+        "description": "Creative and original portraits, experimenting with light, colors, and poses.",
         "role": "Photographer",
         "results": "Unique and expressive photos.",
-        "impact": "Showcasing personality.",
+        "impact": "Highlighting personality.",
         "tools": "Nikon Z6",
         "cardId": "portrait-2"
       },
       "artistique1": {
-        "title": "Art Project – Black & White",
-        "description": "Black and white photo series exploring contrasts and emotions.",
-        "role": "Artistic photographer",
+        "title": "Artistic Project – Black & White",
+        "description": "Black and white photo series, exploring contrasts and emotions.",
+        "role": "Art Photographer",
         "results": "Expressive and timeless gallery.",
-        "impact": "Highlighting photographic art.",
+        "impact": "Showcasing photographic art.",
         "tools": "Canon EOS R",
-        "cardId": "artistique-0"
+        "cardId": "artistic-0"
       },
       "artistique2": {
-        "title": "Art Project – Light & Shadow",
+        "title": "Artistic Project – Light & Shadow",
         "description": "Experimentation with light, playing with shadows and highlights for unique portraits.",
         "role": "Photographer",
         "results": "Creative and original photos.",
         "impact": "Artistic exploration of light.",
         "tools": "Sony A7 IV",
-        "cardId": "artistique-1"
+        "cardId": "artistic-1"
       },
       "artistique3": {
-        "title": "Art Project – Colors & Textures",
-        "description": "Colorful and textured photo series exploring vivid colors and textures to create original and expressive compositions.",
-        "role": "Artistic photographer",
+        "title": "Artistic Project – Colors & Textures",
+        "description": "Colorful and textured photo series, exploring vivid colors and textures to create original and expressive compositions.",
+        "role": "Art Photographer",
         "results": "Vibrant and modern gallery.",
         "impact": "Showcasing creativity and originality.",
         "tools": "Nikon Z6, Lightroom",
-        "cardId": "artistique-2"
+        "cardId": "artistic-2"
       },
       "evenement1": {
-        "title": "Event – Professional Fair",
-        "description": "Photo coverage of a professional fair, capturing exchanges and key moments.",
-        "role": "Event photographer",
+        "title": "Event – Professional Trade Show",
+        "description": "Photo coverage of a professional trade show, capturing exchanges and highlights.",
+        "role": "Event Photographer",
         "results": "Album delivered for internal and external communication.",
         "impact": "Professional memories for the company.",
         "tools": "Canon EOS R",
-        "cardId": "evenement-0"
+        "cardId": "event-0"
       },
       "evenement2": {
         "title": "Event – Local Conference",
-        "description": "Photo report of a conference, highlighting speakers and the audience.",
+        "description": "Photo reportage of a conference, highlighting speakers and the audience.",
         "role": "Photographer",
         "results": "Complete gallery for media distribution.",
         "impact": "Showcasing speakers and participants.",
         "tools": "Sony A7 IV",
-        "cardId": "evenement-1"
+        "cardId": "event-1"
       },
       "evenement3": {
-        "title": "Event – Beauty Fashion Show",
-        "description": "Video and photos of a beauty fashion show, capturing elegance and creativity of participants.",
+        "title": "Event – Beauty Show",
+        "description": "Video and photos of a beauty show, capturing the elegance and creativity of participants.",
         "role": "Photographer",
-        "results": "Video edit and photo album delivered.",
-        "impact": "Elegant keepsakes for participants.",
+        "results": "Video montage and photo album delivered.",
+        "impact": "Elegant memories for participants.",
         "tools": "Nikon Z6, Lightroom",
-        "cardId": "evenement-2"
-      }
+        "cardId": "event-2"
+      },
+      
+  "shooting2": {
+    "title": "Pregnancy & Couple Shoot",
+    "description": "Intimate and natural photo session to capture couples’ connection and the beauty of expectant mothers, with soft and expressive portraits.",
+    "results": "Warm and emotional photo album"
+  },
+  "shooting1": {
+    "title": "Lifestyle Outdoor Shoot",
+    "description": "Spontaneous photographs in urban or natural settings, capturing authentic everyday moments and highlighting the personality of the models.",
+    "results": "Lively and modern gallery"
+  },
+  "branding1": {
+    "title": "Branding – Individual Portraits",
+    "description": "Professional portraits of individuals, created with a modern and elegant approach to reflect their identity and strengthen their personal image.",
+    "results": "Corporate gallery that is authentic and enhancing"
+  },
+  "branding2": {
+    "title": "Branding – Highlighting Key People",
+    "description": "Photo sessions dedicated to key individuals, showcasing their role and personality in communication.",
+    "results": "Expressive and personalized gallery"
+  }
+
     }
   },
+
   "media": {
     "prev": "Previous",
     "next": "Next",
     "mute": "Mute",
     "unmute": "Unmute",
-    "play": "Play slideshow",
+    "play": "Start slideshow",
     "pause": "Pause"
   },
   "modal": {
     "close": "Close"
   },
-  "experience": {
-    "title": "My experiences",
-    "viewPhotos": "View photos",
-    "items": [
-      {
-        "role": "Wedding Photographer",
-        "company": "Sarah & Marc",
-        "location": "Yaoundé",
-        "period": "May 2025",
-        "description": [
-          "Complete reportage of the ceremony, capturing every emotion with discretion and sensitivity.",
-          "Photo album delivered in digital format, ensuring timeless memories that can be shared with loved ones."
-        ],
-        "tools": [
-          "Sony A7 IV",
-          "Capture One"
-        ],
-        "cardId": "mariage-0"
+  "approach": {
+    "title": "OUR APPROACH",
+    "description": "Every project begins with an idea. We transform it into images, videos, and content that bring your vision to life.",
+    "steps": {
+      "understand": {
+        "title": "Understand",
+        "description": "We take the time to understand your project, your identity, and your goals in order to build a direction tailored to your needs."
       },
-      {
-        "role": "Portrait Photographer",
-        "company": "Private clients",
-        "location": "Douala",
-        "period": "2024 – 2025",
-        "description": [
-          "Portrait series in natural light and studio, highlighting each client's unique personality.",
-          "Professional retouching with Lightroom and Photoshop for a premium gallery-worthy result."
-        ],
-        "tools": [
-          "Canon R5",
-          "Lightroom",
-          "Photoshop"
-        ],
-        "cardId": "portrait-0"
+      "design": {
+        "title": "Design",
+        "description": "We imagine a visual direction consistent with your universe, your image, and your audience."
       },
-      {
-        "role": "Wedding Photographer",
-        "company": "Julie & Alain",
-        "location": "Yaoundé",
-        "period": "2023",
-        "description": [
-          "Coverage of preparations and reception, with special attention to details and moments of complicity.",
-          "Complete album delivered in a premium box, enhancing elegance and sentimental value of the memories."
-        ],
-        "tools": [
-          "Canon R5",
-          "Lightroom"
-        ],
-        "cardId": "mariage-5"
+      "produce": {
+        "title": "Produce",
+        "description": "We create your photos, videos, and content with special attention to creativity and detail."
       },
-      {
-        "role": "Birthday Photographer",
-        "company": "Nguem Family",
-        "location": "Douala",
-        "period": "December 2024",
-        "description": [
-          "Reportage of decorations and key moments, capturing the energy and joy of the celebration.",
-          "Dynamic and festive gallery that allows the host to relive the atmosphere and share moments with guests."
-        ],
-        "tools": [
-          "Sony A7 III"
-        ],
-        "cardId": "anniversaire-0"
-      },
-      {
-        "role": "Portrait Photographer",
-        "company": "Studio Lumière",
-        "location": "Douala",
-        "period": "2023",
-        "description": [
-          "Artistic studio sessions exploring light and poses to create unique images.",
-          "Each portrait is designed to strengthen the client's confidence and visual identity."
-        ],
-        "tools": [
-          "Nikon Z6",
-          "Capture One"
-        ],
-        "cardId": "portrait-2"
-      },
-      {
-        "role": "Artistic Photographer",
-        "company": "Local Exhibition",
-        "location": "Yaoundé",
-        "period": "2022",
-        "description": [
-          "Black and white photo series exploring contrasts and deep emotions.",
-          "The images were exhibited, enhancing artistic credibility and recognition of the work."
-        ],
-        "tools": [
-          "Canon EOS R"
-        ],
-        "cardId": "artistique-0"
-      },
-      {
-        "role": "Birthday Photographer",
-        "company": "Youth Club",
-        "location": "Douala",
-        "period": "August 2023",
-        "description": [
-          "Coverage of the dance party, capturing the energy and spontaneity of guests.",
-          "Festive album delivered in digital format, allowing participants to relive the atmosphere and share memories."
-        ],
-        "tools": [
-          "Sony A7 IV"
-        ],
-        "cardId": "anniversaire-1"
-      },
-      {
-        "role": "Wedding Photographer",
-        "company": "Paul & Diane",
-        "location": "Yaoundé",
-        "period": "2024",
-        "description": [
-          "Outdoor couple portraits taken in natural settings for an authentic result.",
-          "Artistic high-resolution photos highlighting love and complicity."
-        ],
-        "tools": [
-          "Nikon Z6",
-          "Lightroom"
-        ],
-        "cardId": "mariage-2"
-      },
-      {
-        "role": "Portrait Photographer",
-        "company": "Fashion Agency",
-        "location": "Douala",
-        "period": "2025",
-        "description": [
-          "Creative portraits for catalogs, designed to strengthen models' professional image.",
-          "Advanced retouching in Photoshop for a commercial and aesthetic finish of high quality."
-        ],
-        "tools": [
-          "Canon EOS R",
-          "Photoshop"
-        ],
-        "cardId": "portrait-1"
-      },
-      {
-        "role": "Artistic Photographer",
-        "company": "Visual Arts Festival",
-        "location": "Yaoundé",
-        "period": "2025",
-        "description": [
-          "Color & texture photo series exploring creativity and originality.",
-          "Vibrant gallery exhibited at the festival, increasing visibility and attracting artistic collaborations."
-        ],
-        "tools": [
-          "Nikon Z6",
-          "Lightroom"
-        ],
-        "cardId": "artistique-1"
-      },
-      {
-        "role": "Artistic Photographer",
-        "company": "Creative Gallery",
-        "location": "Douala",
-        "period": "2025",
-        "description": [
-          "Color & texture photo series exhibited locally and presented at artistic events.",
-          "This exhibition broadened the project's visibility and attracted collaborative opportunities."
-        ],
-        "tools": [
-          "Nikon Z6",
-          "Lightroom"
-        ],
-        "cardId": "artistique-2"
-      },
-      {
-        "role": "Event Photographer",
-        "company": "Professional Fair",
-        "location": "Douala",
-        "period": "2024",
-        "description": [
-          "Photo coverage of a professional fair, capturing exchanges and key moments.",
-          "Album delivered for internal and external communication."
-        ],
-        "tools": [
-          "Canon EOS R"
-        ],
-        "cardId": "evenement-0"
-      },
-      {
-        "role": "Event Photographer",
-        "company": "Local Conference",
-        "location": "Yaoundé",
-        "period": "2023",
-        "description": [
-          "Photo reportage of a conference, highlighting speakers and the audience.",
-          "Complete gallery for media distribution."
-        ],
-        "tools": [
-          "Sony A7 IV"
-        ],
-        "cardId": "evenement-1"
-      },
-      {
-        "role": "Event Photographer",
-        "company": "Beauty Fashion Show",
-        "location": "Douala",
-        "period": "2025",
-        "description": [
-          "Video and photos of a beauty fashion show, capturing elegance and creativity of participants.",
-          "Video edit and photo album delivered."
-        ],
-        "tools": [
-          "Nikon Z6",
-          "Lightroom"
-        ],
-        "cardId": "evenement-2"
+      "enhance": {
+        "title": "Enhance",
+        "description": "Editing, montage, and post-production provide the final touch and give full strength to your project."
       }
-    ]
-  },
-  "contact": {
-    "title": "Contact Me",
-    "intro": "Would you like to immortalize a wedding, a birthday, a portrait or an artistic project? I am available to discuss your ideas and support you in creating visual memories. Contact me via the form or directly by phone or email.",
-    "location": "Douala, Cameroon",
-    "facebook": "My Facebook page",
-    "instagram": "My Instagram profile",
-    "tiktok": "My TikTok account",
-    "email": "camfocusjordan@gmail.com",
-    "phone": "(+237)  659 32 21 37",
-    "phone1": "(+237) 697 50 39 43",
-    "form": {
-      "name": "Your name",
-      "email": "Your email",
-      "phone": "Your phone",
-      "service": "Type of photo session",
-      "details": "Describe your project or event...",
-      "send": "Send",
-      "success": "Message sent successfully",
-      "error": "An error occurred"
     }
+  },
+  "temoignages": {
+    "title": "THEY TRUST US",
+    "hint": "Swipe to navigate →",
+    "items": {
+      "1": {
+        "nom": "Louann & Julien",
+        "texte": "The photos of our wedding are sublime. The company captured every emotion and every detail, allowing us to relive this day through its work.",
+        "type": "Wedding"
+      },
+      "2": {
+        "nom": "Florence & Frédéric",
+        "texte": "We were amazed by the professionalism and discretion. The shots are natural and full of life, exactly what we wanted.",
+        "type": "Wedding"
+      },
+      "3": {
+        "nom": "Charles",
+        "texte": "An incredible portrait shoot. I felt comfortable from the start and the result exceeded my expectations. The photos perfectly reflect my personality.",
+        "type": "Portrait"
+      },
+      "4": {
+        "nom": "Sophie",
+        "texte": "Thank you for the wonderful birthday photos. The team captured the highlights and the smiles of my loved ones. A precious memory.",
+        "type": "Birthday"
+      },
+      "5": {
+        "nom": "Company E-Technology",
+        "texte": "The photos of our conference gave a modern and professional image of our company. The shots have become a real asset for our communication.",
+        "type": "Event"
+      },
+      "6": {
+        "nom": "Anthoine",
+        "texte": "The artistic approach is unique. The photos from my shoot are original and full of creativity. I am delighted with the result.",
+        "type": "Branding"
+      },
+      "7": {
+        "nom": "Claire & Julien",
+        "texte": "Our couple photo session was magical. The company captured our connection with naturalness and elegance. We will cherish these memories.",
+        "type": "Couple"
+      },
+      "8": {
+        "nom": "Sophie & Marc",
+        "texte": "The pregnancy shoot was a wonderful experience. The photos perfectly reflect the emotion and tenderness of this unique period.",
+        "type": "Pregnancy"
+      },
+      "9": {
+        "nom": "Amélie",
+        "texte": "My branding project came to life thanks to the images. The video and portraits highlight my identity with authenticity.",
+        "type": "Branding"
+      },
+      "10": {
+        "nom": "David",
+        "texte": "My birthday was immortalized in the most beautiful way. The photos capture the joy, laughter, and festive atmosphere of the evening.",
+        "type": "Birthday"
+      }
+    }
+  },
+  "whatsapp": {
+    "messages": {
+      "shooting": "Would you like a photoshoot?",
+      "contact": "Contact us on WhatsApp",
+      "booking": "Book your session now"
+    }
+  },
+
+  "contact": {
+    "shootingTitle": "Do you need a",
+    "shootingWord": "shooting",
+    "description": "Whether it’s for a wedding, a corporate event, or an artistic project, our team is here to listen to your photo, video, and branding needs. Fill out the form below or contact us directly using our details.",
+    "teamAlt": "111 Studio Team",
+    "intro": "For your photo, video, and branding projects, our team is available to support you.",
+    "email": "contact@111studio.com",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "whatsapp": "+237 672 89 46 69",
+    "phone": "+237 689 36 30 34",
+    "location": "Douala, Cameroon",
+    "form": {
+      "name": "Full name",
+      "email": "Email address",
+      "phone": "Phone",
+      "service": "Requested service (e.g., shooting, video...)",
+      "details": "Describe your project",
+      "send": "Send",
+      "success": "Message sent successfully!",
+      "error": "An error occurred, please try again."
+    }
+  },
+  "contactHero": {
+    "title": "Contact us",
+    "slogans": {
+      "0": "A photo or video project?",
+      "1": "Request a personalized quote",
+      "2": "We are available for your events"
+    },
+    "cta": "Send a message"
   },
   "footer": {
-    "nav": {
+    "logo": "111 STUDIO",
+    "description": "Creative studio specialized in photography, videography, branding, and content creation",
+    "navigation": {
+      "title": "Navigation",
       "home": "Home",
       "about": "About",
-      "projects": "Projects",
-      "experiences": "Experiences",
+      "services": "Our Services",
+      "portfolio": "Our Projects",
       "contact": "Contact"
     },
-    "portfolio": "Portfolio of",
-    "company": "E‑Technology",
-    "rights": "All rights reserved",
-    "socials": {
-      "facebook": "Facebook",
-      "instagram": "Instagram",
-      "tiktok": "TikTok"
-    }
+    "services": {
+      "title": "Services",
+      "photography": "Photography",
+      "videography": "Videography",
+      "branding": "Branding & Visual Identity",
+      "content": "Content Creation"
+    },
+    "contact": {
+      "title": "Contact",
+      "email": "contact@111studio.com",
+      "phone1": "237672894669",
+      "phone1_display": "+237 6 72 89 46 69",
+      "phone2": "237676471601",
+      "phone2_display": "+237 6 76 47 16 01",
+      "location": "Bonamoussadi, Douala Cameroon"
+    },
+    "social": {
+      "facebook": "https://facebook.com/111studio",
+      "instagram": "https://instagram.com/111studio",
+      "tiktok": "https://www.tiktok.com/@111studio",
+      "linkedin": "https://linkedin.com/company/111studio"
+    },
+    "company": "© E‑Technology | Frank Landry",
+    "rights": "All rights reserved"
   }
 }
+

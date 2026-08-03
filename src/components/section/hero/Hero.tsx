@@ -3,16 +3,17 @@ import Button from "@components/ui/Button";
 import { useTranslation } from "react-i18next";
 import { motion, Variants } from "framer-motion";
 import { FaLinkedin, FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();
 
   // 🔹 Médias pour les côtés
   const sideMedia = [
-    { type: "image", src: "/images/hero2.jpg" },
-    { type: "image", src: "/images/hero3.jpg" },
+    { type: "image", src: "/images/hero/hero2.webp" },
+    { type: "image", src: "/images/hero/hero3.webp" },
     { type: "video", src: "/videos/about1.mp4" },
-    { type: "image", src: "/images/hero4.jpg" },
+    { type: "image", src: "/images/hero/hero4.webp" },
   ];
 
   const centerImage = "/images/hero5.jpg";
@@ -109,7 +110,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative h-screen bg-black text-white overflow-hidden flex items-center justify-center"
+      className="relative h-[110vh] md:h-screen bg-black text-white overflow-hidden flex items-center justify-center"
     >
       {/* 🔹 Version mobile : slider plein écran */}
       <div className="absolute inset-0 h-full block md:hidden">
@@ -211,19 +212,27 @@ const Hero: React.FC = () => {
           <div
             className="
     max-w-2xl
-    space-y-5
+    space-y-3
     rounded-lg
     p-6
     text-center
-    translate-y-10
+    translate-y-12
     sm:translate-y-8
     md:translate-y-0
     md:-mb-25
   "
           >
             {/* 🔹 Titre */}
+            {/* 🔹 Titre */}
             <motion.h1
-              className="font-extrabold text-[clamp(2.5rem,6vw,3.5rem)] leading-tight"
+              className="
+    font-extrabold
+    text-[clamp(2.5rem,6vw,3.5rem)]
+    leading-tight
+    translate-y-3
+    sm:translate-y-4
+    md:translate-y-0
+  "
               variants={cascadeVariant}
               initial="hidden"
               animate="visible"
@@ -233,16 +242,18 @@ const Hero: React.FC = () => {
             </motion.h1>
 
             {/* 🔹 Slogan */}
-            <motion.h2
-              className="text-green-600 text-xl leading-tight font-bold"
-              key={sloganIndex}
-              variants={cascadeVariant}
-              initial="hidden"
-              animate="visible"
-              custom={1}
-            >
-              {slogans[sloganIndex]}
-            </motion.h2>
+            <div className="h-12 flex items-center justify-center overflow-hidden">
+              <motion.h2
+                className="text-green-500 text-xl leading-tight font-bold"
+                key={sloganIndex}
+                variants={cascadeVariant}
+                initial="hidden"
+                animate="visible"
+                custom={1}
+              >
+                {slogans[sloganIndex]}
+              </motion.h2>
+            </div>
 
             {/* 🔹 Description */}
             <motion.p
@@ -264,7 +275,7 @@ const Hero: React.FC = () => {
                 md:items-center
                 md:justify-center
                 md:space-x-4
-                space-y-4
+                space-y-2
                 md:space-y-0
               "
               variants={cascadeVariant}
@@ -280,17 +291,17 @@ const Hero: React.FC = () => {
                 />
               </a>
 
-              <a href="#contact" className="w-full md:w-auto">
+              <NavLink to="/contact" className="w-full md:w-auto">
                 <Button
                   text={t("hero.btnContact")}
                   variant="secondary"
                   className="w-full bg-orange-500 hover:bg-orange-600 text-white"
                 />
-              </a>
+              </NavLink>
             </motion.div>
 
             {/* 🔹 Icônes réseaux sociaux */}
-            <div className="flex justify-center items-center gap-6 mt-6 text-2xl text-gray-200">
+            <div className="flex justify-center items-center gap-6 mt-4 text-2xl text-gray-200">
               {/* LinkedIn */}
               <a
                 href={t("hero.linkedinUrl")}

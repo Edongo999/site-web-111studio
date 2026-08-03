@@ -1,15 +1,40 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { temoignages } from "@/components/section/temoignages/temoignagesData";
 import { useTranslation } from "react-i18next";
+
+const container: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1.2, // ✅ plus long et fluide
+      ease: "easeInOut",
+      staggerChildren: 0.3, // ✅ décalage doux
+    },
+  },
+};
+
+const item: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1, // ✅ animation plus douce
+      ease: "easeOut",
+    },
+  },
+};
 
 const Temoignages: React.FC = () => {
   const { t } = useTranslation();
   const [index, setIndex] = useState(0);
   const [showArrows, setShowArrows] = useState(false);
   const [showHint, setShowHint] = useState(true);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null); // ✅ correction
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const startAutoPlay = () => {
     if (!intervalRef.current) {
@@ -36,13 +61,29 @@ const Temoignages: React.FC = () => {
     setIndex((prev) => (prev - 1 + temoignages.length) % temoignages.length);
 
   return (
-    <section className="py-12 bg-gray-900" id="temoignages">
-      <div className="max-w-4xl mx-auto px-6 text-center relative">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-10 px-3 py-1 rounded-lg text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-orange-200 to-violet-500 animate-gradient-x">
+    <motion.section
+      id="temoignages"
+      className="py-12 bg-gray-900"
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      <motion.div
+        variants={container}
+        className="max-w-4xl mx-auto px-6 text-center relative"
+      >
+        {/* Titre */}
+        <motion.h2
+          variants={item}
+          className="text-2xl sm:text-3xl font-bold mb-10 px-3 py-1 rounded-lg text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-orange-200 to-violet-500 animate-gradient-x"
+        >
           {t("temoignages.title")}
-        </h2>
+        </motion.h2>
 
-        <div
+        {/* Bloc principal */}
+        <motion.div
+          variants={container}
           className="relative flex items-center justify-center"
           onTouchStart={() => {
             stopAutoPlay();
@@ -66,11 +107,11 @@ const Temoignages: React.FC = () => {
           <AnimatePresence>
             {(showArrows || window.innerWidth >= 768) && (
               <motion.button
+                variants={item}
                 onClick={prev}
-                initial={{ opacity: 0, x: -20, scale: 0.9 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: -20, scale: 0.9 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
+                initial="hidden"
+                animate="show"
+                exit="hidden"
                 className="absolute left-2 sm:left-[-70px] z-10 p-3 rounded-full text-white shadow-lg 
                            bg-gradient-to-r from-orange-500 to-red-500 
                            hover:from-orange-600 hover:to-red-600 
@@ -85,32 +126,38 @@ const Temoignages: React.FC = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={temoignages[index].id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
+              variants={container}
+              initial="hidden"
+              animate="show"
+              exit="hidden"
               className="bg-gray-800 backdrop-blur-md shadow-2xl rounded-xl p-8 flex flex-col items-center border border-gray-700 max-w-lg"
             >
-              <div className="relative mb-6">
+              <motion.div variants={item} className="relative mb-6">
                 <div className="absolute inset-0 w-42 h-42 rounded-full bg-gradient-to-r from-orange-500 via-yellow-500 to-red-500 blur-xl animate-pulse"></div>
                 <div className="relative w-42 h-42 rounded-full border-4 border-orange-500 overflow-hidden shadow-lg">
                   <img
                     src={temoignages[index].image}
-                    alt={t(`temoignages.items.${temoignages[index].id}.nom`)} // ✅ correction
+                    alt={t(`temoignages.items.${temoignages[index].id}.nom`)}
                     className="w-full h-full object-cover"
                   />
                 </div>
-              </div>
+              </motion.div>
 
-              <p className="italic text-gray-200 mb-6 text-lg leading-relaxed">
+              <motion.p
+                variants={item}
+                className="italic text-gray-200 mb-6 text-lg leading-relaxed"
+              >
                 “{t(`temoignages.items.${temoignages[index].id}.texte`)}”
-              </p>
-              <h3 className="font-semibold text-xl text-white">
+              </motion.p>
+              <motion.h3
+                variants={item}
+                className="font-semibold text-xl text-white"
+              >
                 {t(`temoignages.items.${temoignages[index].id}.nom`)}
-              </h3>
-              <span className="text-sm text-gray-400">
+              </motion.h3>
+              <motion.span variants={item} className="text-sm text-gray-400">
                 {t(`temoignages.items.${temoignages[index].id}.type`)}
-              </span>
+              </motion.span>
             </motion.div>
           </AnimatePresence>
 
@@ -118,11 +165,11 @@ const Temoignages: React.FC = () => {
           <AnimatePresence>
             {(showArrows || window.innerWidth >= 768) && (
               <motion.button
+                variants={item}
                 onClick={next}
-                initial={{ opacity: 0, x: 20, scale: 0.9 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: 20, scale: 0.9 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
+                initial="hidden"
+                animate="show"
+                exit="hidden"
                 className="absolute right-2 sm:right-[-70px] z-10 p-3 rounded-full text-white shadow-lg 
                            bg-gradient-to-r from-orange-500 to-red-500 
                            hover:from-orange-600 hover:to-red-600 
@@ -132,11 +179,14 @@ const Temoignages: React.FC = () => {
               </motion.button>
             )}
           </AnimatePresence>
-        </div>
+        </motion.div>
 
         {/* Indicateurs + Hint */}
-        <div className="flex flex-col items-center mt-6 space-y-2">
-          <div className="flex justify-center space-x-3">
+        <motion.div
+          variants={container}
+          className="flex flex-col items-center mt-6 space-y-2"
+        >
+          <motion.div variants={item} className="flex justify-center space-x-3">
             {temoignages.map((_, i) => (
               <button
                 key={i}
@@ -148,22 +198,19 @@ const Temoignages: React.FC = () => {
                 }`}
               />
             ))}
-          </div>
+          </motion.div>
 
           {showHint && window.innerWidth < 768 && (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
+              variants={item}
               className="text-sm text-gray-400 italic mt-2"
             >
               {t("temoignages.hint")}
             </motion.div>
           )}
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 };
 

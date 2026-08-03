@@ -97,7 +97,7 @@ const PageTransitionLoader: React.FC = () => {
             {/* LOGO QUI SE DESSINE */}
             <div className="relative z-10 w-32 h-32 overflow-hidden">
               <motion.img
-                src="/images/logo.png"
+                src="/images/hero/logo.webp"
                 alt="Logo"
                 className="
                   absolute

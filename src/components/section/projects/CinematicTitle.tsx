@@ -14,7 +14,7 @@ export default function CinematicTitle({
   className,
 }: CinematicTitleProps) {
   const { t } = useTranslation();
-  const bg = imageUrl ?? "/images/service.webp";
+  const bg = imageUrl ?? "/images/hero/service.webp";
 
   return (
     <div
@@ -49,7 +49,7 @@ export default function CinematicTitle({
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1.2, duration: 1.1, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-bold text-white z-10 text-center"
+        className="text-2xl md:text-4xl font-bold text-white z-10 text-center"
       >
         {t(textKey)}
       </motion.h3>

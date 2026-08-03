@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-const images = ["/images/hero1.jpg", "/images/hero2.jpg", "/images/hero7.jpg"];
+const images = [
+  "/images/hero/hero1.webp",
+  "/images/hero/hero2.webp",
+  "/images/hero/hero7.webp",
+];
 
 const ContactHero: React.FC = () => {
   const { t } = useTranslation();
@@ -70,7 +74,7 @@ const ContactHero: React.FC = () => {
 
         {/* Bouton CTA */}
         <motion.a
-          href="#contact-form"
+          href="#contact"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}

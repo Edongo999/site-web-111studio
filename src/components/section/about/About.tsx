@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import ModalPortal from "@components/section/projects/ModalPortal";
+import { NavLink } from "react-router-dom";
 
 const About: React.FC = () => {
   const { t } = useTranslation();
@@ -14,21 +15,30 @@ const About: React.FC = () => {
     visible: (i: number = 0) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.3, duration: 1, ease: "easeOut" },
+      transition: {
+        delay: i * 0.3,
+        duration: 1,
+        ease: "easeOut",
+      },
     }),
   };
 
   return (
-    <section
+    <motion.section
       id="about"
       className="min-h-screen bg-gray-900 px-8 py-16 text-white"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="mx-auto max-w-6xl space-y-12">
         {/* 🔹 Titre principal */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1, ease: "easeOut" }}
           className="space-y-4 text-center"
         >
           <h2
@@ -91,7 +101,7 @@ const About: React.FC = () => {
           <div className="relative w-full h-[390px] sm:h-[450px] md:min-h-[500px]">
             {/* Image principale */}
             <motion.img
-              src="/images/about.jpg"
+              src="/images/hero/about.webp"
               alt={t("about.mainImageAlt")}
               className="
                 relative top-2 -left-5
@@ -100,14 +110,15 @@ const About: React.FC = () => {
                 sm:mt-10 sm:h-80 sm:w-[320px]
                 md:top-0 md:-left-12 md:mt-15 md:h-110 md:w-110
               "
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 1, ease: "easeOut" }}
             />
 
             {/* Image secondaire */}
             <motion.img
-              src="/images/hero8.jpg"
+              src="/images/hero/hero8.webp"
               alt={t("about.secondaryPhotoAlt")}
               className="
                 relative -top-90 -right-55
@@ -119,12 +130,13 @@ const About: React.FC = () => {
               "
               initial={{ opacity: 0, x: 50, y: -20 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
             />
 
             {/* ================================================= */}
             {/* 🔹 VIDÉO SECONDAIRE */}
-            {/* ================================================= */}
+            {/* =========================== ====================== */}
 
             <div
               onClick={() => setIsVideoOpen(true)}
@@ -152,7 +164,8 @@ const About: React.FC = () => {
                 "
                 initial={{ opacity: 0, x: 50, y: 20 }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ duration: 1, delay: 0.6 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
               />
 
               {/* 🔹 Indication au survol */}
@@ -203,7 +216,7 @@ const About: React.FC = () => {
             variants={cascadeVariant}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.25 }}
             className="space-y-6 text-justify"
           >
             <p className="leading-relaxed text-gray-300">
@@ -223,24 +236,28 @@ const About: React.FC = () => {
 
             {/* Boutons */}
             <div className="mt-6 flex gap-4">
-              <a
-                href="/projects"
+              <NavLink
+                to="/projects"
                 className="
-                  rounded-lg bg-orange-600 px-6 py-3 font-bold text-white
-                  shadow-lg transition hover:bg-orange-700
-                "
+    inline-block min-w-[160px] min-h-[48px]
+    rounded-lg bg-orange-600 px-6 py-3 font-bold text-white
+    shadow-lg transition hover:bg-orange-700 text-center
+  "
               >
                 {t("about.buttonPortfolio")}
-              </a>
-
+              </NavLink>
               <a
                 href={t("about.buttonBookingLink")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="
-                  rounded-lg bg-green-600 px-6 py-3 font-bold text-white
-                  shadow-lg transition hover:bg-green-700
-                "
+    inline-block
+    min-w-[160px]
+    min-h-[48px]   /* même hauteur minimale */
+    leading-[1.5]  /* même hauteur de ligne */
+    rounded-lg bg-green-600 px-6 py-3 font-bold text-white
+    shadow-lg transition hover:bg-green-700 text-center
+  "
               >
                 {t("about.buttonBooking")}
               </a>
@@ -274,7 +291,7 @@ const About: React.FC = () => {
           </motion.div>
         </ModalPortal>
       )}
-    </section>
+    </motion.section>
   );
 };
 

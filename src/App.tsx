@@ -15,6 +15,7 @@ import { PageTransitionProvider } from "@/components/ui/PageTransitionContext";
 
 import { Analytics } from "@vercel/analytics/react";
 import ScrollToTop from "./components/layout/ScrollToTop";
+import BackToTopButton from "./components/BackToTopButton";
 
 function App() {
   const showLock = false;
@@ -36,6 +37,7 @@ function App() {
           </Routes>
 
           <WhatsAppFloatingButton />
+          <BackToTopButton />
 
           <AlertModal show={showLock} />
 

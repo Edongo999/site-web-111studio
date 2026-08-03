@@ -127,17 +127,30 @@ const Services = () => {
             className="text-2xl sm:text-3xl font-extrabold text-center text-transparent bg-clip-text 
              bg-gradient-to-r from-orange-100 via-green-200 to-white"
           >
-            {t("servicesPage.title")} <br /> {t("servicesPage.title1")}
+            {t("servicesPage.title")}
           </h2>
         </motion.div>
 
         {/* INTRO */}
         <motion.p
+          lang="fr"
           variants={itemVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.4 }}
-          className="text-gray-100 text-xl md:text-xl leading-relaxed text-left md:text-justify"
+          viewport={{
+            once: true,
+            amount: 0.25,
+          }}
+          className="
+                    text-gray-100
+                    text-lg
+                    md:text-xl
+                    leading-relaxed
+                    text-justify
+                    hyphens-auto
+                    break-normal
+                    [overflow-wrap:break-word]
+                  "
         >
           {t("servicesPage.intro")}
         </motion.p>

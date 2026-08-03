@@ -1,4 +1,6 @@
+
 // src/components/section/projects/ProjectsData.ts
+
 import { Project } from "@/components/ui/ProjectCard";
 import { useTranslation } from "react-i18next";
 
@@ -6,7 +8,10 @@ export const useProjectsData = (): Project[] => {
   const { t } = useTranslation();
 
   return [
-    // cartes pour les mariages (inchangées)
+    // =====================================================
+    // MARIAGES
+    // =====================================================
+
     {
       title: t("projects.items.mariage1.title"),
       description: t("projects.items.mariage1.description"),
@@ -33,11 +38,12 @@ export const useProjectsData = (): Project[] => {
         { type: "image", src: "/images/Mariage1/mariage109.webp" },
         { type: "image", src: "/images/Mariage1/mariage1010.webp" },
         { type: "image", src: "/images/Mariage1/mariage1011.webp" },
-        { type: "image", src: "/images/Mariage1/mariage1012.webp" }
+        { type: "image", src: "/images/Mariage1/mariage1012.webp" },
       ],
-      category: "Mariage",
-      cardId: "mariage-0"
+      category: "wedding",
+      cardId: "mariage-0",
     },
+
     {
       title: t("projects.items.mariage2.title"),
       description: t("projects.items.mariage2.description"),
@@ -48,11 +54,12 @@ export const useProjectsData = (): Project[] => {
         { type: "image", src: "/images/Mariage2/mariage22.webp" },
         { type: "image", src: "/images/Mariage2/mariage23.webp" },
         { type: "image", src: "/images/Mariage2/mariage24.webp" },
-        { type: "image", src: "/images/Mariage2/mariage25.webp" }
+        { type: "image", src: "/images/Mariage2/mariage25.webp" },
       ],
-      category: "Mariage",
-      cardId: "mariage-1"
+      category: "wedding",
+      cardId: "mariage-1",
     },
+
     {
       title: t("projects.items.mariage3.title"),
       description: t("projects.items.mariage3.description"),
@@ -77,11 +84,12 @@ export const useProjectsData = (): Project[] => {
         { type: "image", src: "/images/Mariage3/mariage309.webp" },
         { type: "image", src: "/images/Mariage3/mariage310.webp" },
         { type: "image", src: "/images/Mariage3/mariage311.webp" },
-        { type: "image", src: "/images/Mariage3/mariage312.webp" }
+        { type: "image", src: "/images/Mariage3/mariage312.webp" },
       ],
-      category: "Mariage",
-      cardId: "mariage-3"
+      category: "wedding",
+      cardId: "mariage-3",
     },
+
     {
       title: t("projects.items.mariage4.title"),
       description: t("projects.items.mariage4.description"),
@@ -91,17 +99,22 @@ export const useProjectsData = (): Project[] => {
         { type: "image", src: "/images/Mariage4/mariage41.webp" },
         { type: "image", src: "/images/Mariage4/mariage42.webp" },
         { type: "image", src: "/images/Mariage4/mariage43.webp" },
-        { type: "video", src: "/images/Mariage4/mariage44.webp" },
+
+        // ⚠️ Tu avais mis "video" avec un fichier .webp.
+        // Je le laisse en image pour éviter un problème de lecture vidéo.
+        { type: "image", src: "/images/Mariage4/mariage44.webp" },
+
         { type: "image", src: "/images/Mariage4/mariage45.webp" },
         { type: "image", src: "/images/Mariage4/mariage46.webp" },
         { type: "image", src: "/images/Mariage4/mariage47.webp" },
         { type: "image", src: "/images/Mariage4/mariage48.webp" },
         { type: "image", src: "/images/Mariage4/mariage49.webp" },
-        { type: "image", src: "/images/Mariage4/mariage401.webp" }
+        { type: "image", src: "/images/Mariage4/mariage401.webp" },
       ],
-      category: "Mariage",
-      cardId: "mariage-4"
+      category: "wedding",
+      cardId: "mariage-4",
     },
+
     {
       title: t("projects.items.mariage5.title"),
       description: t("projects.items.mariage5.description"),
@@ -116,11 +129,12 @@ export const useProjectsData = (): Project[] => {
         { type: "image", src: "/images/Mariage5/image56.webp" },
         { type: "image", src: "/images/Mariage5/image57.webp" },
         { type: "image", src: "/images/Mariage5/image58.webp" },
-        { type: "image", src: "/images/Mariage5/image59.webp" }
+        { type: "image", src: "/images/Mariage5/image59.webp" },
       ],
-      category: "Mariage",
-      cardId: "mariage-5"
+      category: "wedding",
+      cardId: "mariage-5",
     },
+
     {
       title: t("projects.items.mariage6.title"),
       description: t("projects.items.mariage6.description"),
@@ -139,13 +153,16 @@ export const useProjectsData = (): Project[] => {
         { type: "image", src: "/images/Mariage6/images601.webp" },
         { type: "image", src: "/images/Mariage6/images602.webp" },
         { type: "image", src: "/images/Mariage6/images603.webp" },
-        { type: "image", src: "/images/Mariage6/images604.webp" }
+        { type: "image", src: "/images/Mariage6/images604.webp" },
       ],
-      category: "Mariage",
-      cardId: "mariage-6"
+      category: "wedding",
+      cardId: "mariage-6",
     },
 
-    // cartes pour les portraits (clés renommées portrait1, portrait2, portrait3)
+    // =====================================================
+    // PORTRAITS
+    // =====================================================
+
     {
       title: t("projects.items.portrait1.title"),
       description: t("projects.items.portrait1.description"),
@@ -167,12 +184,12 @@ export const useProjectsData = (): Project[] => {
         { type: "image", src: "/images/Portrait1/portrait13.webp" },
         { type: "image", src: "/images/Portrait1/portrait14.webp" },
         { type: "image", src: "/images/Portrait1/portrait15.webp" },
-        { type: "image", src: "/images/Portrait1/portrait16.webp" }
-
+        { type: "image", src: "/images/Portrait1/portrait16.webp" },
       ],
-      category: "Portrait",
-      cardId: "portrait-0"
+      category: "portrait",
+      cardId: "portrait-0",
     },
+
     {
       title: t("projects.items.portrait2.title"),
       description: t("projects.items.portrait2.description"),
@@ -183,29 +200,32 @@ export const useProjectsData = (): Project[] => {
         { type: "image", src: "/images/Portrait2/portrait22.webp" },
         { type: "image", src: "/images/Portrait2/portrait23.webp" },
         { type: "image", src: "/images/Portrait2/portrait24.webp" },
-        { type: "image", src: "/images/Portrait2/portrait25.webp" }
-
+        { type: "image", src: "/images/Portrait2/portrait25.webp" },
       ],
-      category: "Portrait",
-      cardId: "portrait-1"
+      category: "portrait",
+      cardId: "portrait-1",
     },
+
     {
       title: t("projects.items.portrait3.title"),
       description: t("projects.items.portrait3.description"),
       results: t("projects.items.portrait3.results"),
       medias: [
         { type: "image", src: "/images/Portrait3/portrait30.webp" },
-        { type: "image", src: "/images/Portrait3/portrait31.webp" },  
+        { type: "image", src: "/images/Portrait3/portrait31.webp" },
         { type: "image", src: "/images/Portrait3/portrait32.webp" },
         { type: "image", src: "/images/Portrait3/portrait33.webp" },
         { type: "image", src: "/images/Portrait3/portrait34.webp" },
-        { type: "image", src: "/images/Portrait3/portrait35.webp" }
+        { type: "image", src: "/images/Portrait3/portrait35.webp" },
       ],
-      category: "Portrait",
-      cardId: "portrait-2"
+      category: "portrait",
+      cardId: "portrait-2",
     },
 
-    // cartes pour Artistique (clés renommées artistique1, artistique2)
+    // =====================================================
+    // ARTISTIQUE
+    // =====================================================
+
     {
       title: t("projects.items.artistique1.title"),
       description: t("projects.items.artistique1.description"),
@@ -217,27 +237,29 @@ export const useProjectsData = (): Project[] => {
         { type: "image", src: "/images/Artistique1/artistique13.webp" },
         { type: "image", src: "/images/Artistique1/artistique14.webp" },
         { type: "image", src: "/images/Artistique1/artistique15.webp" },
-        { type: "image", src: "/images/Artistique1/artistique16.webp" }
+        { type: "image", src: "/images/Artistique1/artistique16.webp" },
       ],
-      category: "Artistique",
-      cardId: "artistique-0"
+      category: "artistic",
+      cardId: "artistique-0",
     },
+
     {
       title: t("projects.items.artistique2.title"),
       description: t("projects.items.artistique2.description"),
       results: t("projects.items.artistique2.results"),
       medias: [
-       { type: "image", src: "/images/Artistique2/artistique20.webp" },
+        { type: "image", src: "/images/Artistique2/artistique20.webp" },
         { type: "image", src: "/images/Artistique2/artistique21.webp" },
         { type: "image", src: "/images/Artistique2/artistique23.webp" },
         { type: "image", src: "/images/Artistique2/artistique24.webp" },
         { type: "image", src: "/images/Artistique2/artistique25.webp" },
-        { type: "image", src: "/images/Artistique2/artistique26.webp" }
+        { type: "image", src: "/images/Artistique2/artistique26.webp" },
       ],
-      category: "Artistique",
-      cardId: "artistique-1"
+      category: "artistic",
+      cardId: "artistique-1",
     },
-        {
+
+    {
       title: t("projects.items.artistique3.title"),
       description: t("projects.items.artistique3.description"),
       results: t("projects.items.artistique3.results"),
@@ -248,48 +270,57 @@ export const useProjectsData = (): Project[] => {
         { type: "image", src: "/images/Artistique3/artistique33.webp" },
         { type: "image", src: "/images/Artistique3/artistique34.webp" },
         { type: "image", src: "/images/Artistique3/artistique35.webp" },
-        { type: "image", src: "/images/Artistique3/artistique36.webp" }
+        { type: "image", src: "/images/Artistique3/artistique36.webp" },
       ],
-      category: "Artistique",
-      cardId: "artistique-2"
+      category: "artistic",
+      cardId: "artistique-2",
     },
 
-    // cartes pour Anniversaire (clés renommées anniversaire1, anniversaire2)
+    // =====================================================
+    // ANNIVERSAIRES
+    // =====================================================
+
     {
       title: t("projects.items.anniversaire1.title"),
       description: t("projects.items.anniversaire1.description"),
       results: t("projects.items.anniversaire1.results"),
-      medias: [{ type: "image", src: "/images/Anniversaire1/anniv10.webp" },
-        { type: "image", src: "/images/Anniversaire1/anniv11.webp" }
+      medias: [
+        { type: "image", src: "/images/Anniversaire1/anniv10.webp" },
+        { type: "image", src: "/images/Anniversaire1/anniv11.webp" },
       ],
-      category: "Anniversaire",
-      cardId: "anniversaire-0"
+      category: "birthday",
+      cardId: "anniversaire-0",
     },
+
     {
       title: t("projects.items.anniversaire2.title"),
       description: t("projects.items.anniversaire2.description"),
       results: t("projects.items.anniversaire2.results"),
       medias: [
         { type: "image", src: "/images/Anniversaire2/anniv3.webp" },
-        { type: "image", src: "/images/Anniversaire2/anniv1.webp" }
-
+        { type: "image", src: "/images/Anniversaire2/anniv1.webp" },
       ],
-      category: "Anniversaire",
-      cardId: "anniversaire-1"
+      category: "birthday",
+      cardId: "anniversaire-1",
     },
-      {
+
+    {
       title: t("projects.items.anniversaire3.title"),
       description: t("projects.items.anniversaire3.description"),
       results: t("projects.items.anniversaire3.results"),
-      medias: [{ type: "image", src: "/images/Anniversaire3/anniv3.webp" },
+      medias: [
+        { type: "image", src: "/images/Anniversaire3/anniv3.webp" },
         { type: "image", src: "/images/Anniversaire3/anniv1.webp" },
-        { type: "image", src: "/images/Anniversaire3/anniv2.webp" }
+        { type: "image", src: "/images/Anniversaire3/anniv2.webp" },
       ],
-      category: "Anniversaire",
-      cardId: "anniversaire-2"
+      category: "birthday",
+      cardId: "anniversaire-2",
     },
 
-    // cartes pour Événement (clés renommées evenement1, evenement2, evenement3)
+    // =====================================================
+    // ÉVÉNEMENTS
+    // =====================================================
+
     {
       title: t("projects.items.evenement1.title"),
       description: t("projects.items.evenement1.description"),
@@ -302,35 +333,33 @@ export const useProjectsData = (): Project[] => {
         { type: "image", src: "/images/Evenement3/even34.webp" },
         { type: "image", src: "/images/Evenement3/even35.webp" },
         { type: "image", src: "/images/Evenement3/even36.webp" },
- 
       ],
-      category: "Événement",
-      cardId: "evenement-0"
+      category: "event",
+      cardId: "evenement-0",
     },
+
     {
       title: t("projects.items.evenement2.title"),
       description: t("projects.items.evenement2.description"),
       results: t("projects.items.evenement2.results"),
       medias: [
-         { type: "image", src: "/images/Evenement2/even20.webp" },
-          { type: "image", src: "/images/Evenement2/even21.webp" },
-          { type: "image", src: "/images/Evenement2/even22.webp" },
-          { type: "image", src: "/images/Evenement2/even23.webp" },
-          { type: "image", src: "/images/Evenement2/even24.webp" },
-          { type: "image", src: "/images/Evenement2/even25.webp" }
-
-        
-        ]
-        ,
-      category: "Événement",
-      cardId: "evenement-1"
+        { type: "image", src: "/images/Evenement2/even20.webp" },
+        { type: "image", src: "/images/Evenement2/even21.webp" },
+        { type: "image", src: "/images/Evenement2/even22.webp" },
+        { type: "image", src: "/images/Evenement2/even23.webp" },
+        { type: "image", src: "/images/Evenement2/even24.webp" },
+        { type: "image", src: "/images/Evenement2/even25.webp" },
+      ],
+      category: "event",
+      cardId: "evenement-1",
     },
+
     {
       title: t("projects.items.evenement3.title"),
       description: t("projects.items.evenement3.description"),
       results: t("projects.items.evenement3.results"),
       medias: [
-         { type: "image", src: "/images/Evenement1/even10.webp" },
+        { type: "image", src: "/images/Evenement1/even10.webp" },
         { type: "image", src: "/images/Evenement1/even11.webp" },
         { type: "image", src: "/images/Evenement1/even12.webp" },
         { type: "image", src: "/images/Evenement1/even13.webp" },
@@ -339,11 +368,95 @@ export const useProjectsData = (): Project[] => {
         { type: "image", src: "/images/Evenement1/even16.webp" },
         { type: "image", src: "/images/Evenement1/even17.webp" },
         { type: "image", src: "/images/Evenement1/even18.webp" },
-        { type: "image", src: "/images/Evenement1/even19.webp" }
-         
+        { type: "image", src: "/images/Evenement1/even19.webp" },
       ],
-      category: "Événement",
-      cardId: "evenement-2"
-    }
+      category: "event",
+      cardId: "evenement-2",
+    },
+    
+    // =====================================================
+    // SHOOTINGS GROSSESSES et couple
+    // =====================================================
+    {
+  title: t("projects.items.shooting1.title"),
+  description: t("projects.items.shooting1.description"),
+  results: t("projects.items.shooting1.results"),
+  medias: [
+    { type: "image", src: "/images/shooting_couple/couple2.webp" },
+    { type: "image", src: "/images/shooting_couple/couple3.webp" },
+    { type: "image", src: "/images/shooting_couple/couple4.webp" },
+    { type: "image", src: "/images/shooting_couple/couple5.webp" },
+    { type: "image", src: "/images/shooting_couple/couple6.webp" },
+    { type: "image", src: "/images/shooting_couple/couple7.webp" },
+    { type: "image", src: "/images/shooting_couple/couple8.webp" },
+    { type: "image", src: "/images/shooting_couple/couple9.webp" },
+  ],
+  category: "shooting",
+  cardId: "shooting-0",
+},
+     {
+  title: t("projects.items.shooting2.title"),
+  description: t("projects.items.shooting2.description"),
+  results: t("projects.items.shooting2.results"),
+  medias: [
+    { type: "image", src: "/images/grossesse/grossese.webp" },
+    { type: "image", src: "/images/grossesse/grossese2.webp" },
+    { type: "image", src: "/images/grossesse/grossese3.webp" },
+    { type: "image", src: "/images/grossesse/grossese4.webp" },
+    { type: "image", src: "/images/grossesse/grossese5.webp" },
+    { type: "image", src: "/images/grossesse/grossese6.webp" },
+    { type: "image", src: "/images/grossesse/grossese7.webp" },
+    { type: "image", src: "/images/grossesse/grossese8.webp" },
+    { type: "image", src: "/images/grossesse/grossese9.webp" },
+    { type: "image", src: "/images/grossesse/grossese10.webp" },
+    { type: "image", src: "/images/grossesse/grossesse11.webp" },
+    { type: "image", src: "/images/grossesse/grossesse12.webp" },
+    { type: "image", src: "/images/grossesse/grossesse13.webp" },
+  ],
+  category: "shooting",
+  cardId: "shooting-1",
+},
+  
+ // =====================================================
+    // BRANDING
+    // =====================================================
+    {
+  title: t("projects.items.branding1.title"),
+  description: t("projects.items.branding1.description"),
+  results: t("projects.items.branding1.results"),
+  medias: [
+    { type: "image", src: "/images/Branding1/branding1.webp" },
+    { type: "image", src: "/images/Branding1/branding2.webp" },
+    { type: "image", src: "/images/Branding1/branding3.webp" },
+    { type: "image", src: "/images/Branding1/branding4.webp" },
+    { type: "image", src: "/images/Branding1/branding5.webp" },
+    { type: "image", src: "/images/Branding1/branding6.webp" },
+    { type: "image", src: "/images/Branding1/branding7.webp" },
+    { type: "image", src: "/images/Branding1/branding8.webp" },
+    { type: "image", src: "/images/Branding1/branding9.webp" },
+  ],
+  category: "branding",
+  cardId: "branding-0",
+},
+    {
+  title: t("projects.items.branding2.title"),
+  description: t("projects.items.branding2.description"),
+  results: t("projects.items.branding2.results"),
+  medias: [
+    { type: "image", src: "/images/Branding2/branding1.webp" },
+    { type: "image", src: "/images/Branding2/branding2.webp" },
+    { type: "image", src: "/images/Branding2/branding3.webp" },
+    { type: "image", src: "/images/Branding2/branding4.webp" },
+    { type: "image", src: "/images/Branding2/branding5.webp" },
+    { type: "image", src: "/images/Branding2/branding6.webp" },
+    { type: "image", src: "/images/Branding2/branding7.webp" },
+    { type: "image", src: "/images/Branding2/branding8.webp" },
+    { type: "image", src: "/images/Branding2/branding9.webp" },
+  ],
+  category: "branding",
+  cardId: "branding-0",
+},
+
   ];
 };
+

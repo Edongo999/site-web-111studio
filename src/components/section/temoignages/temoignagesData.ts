@@ -29,4 +29,20 @@ export const temoignages: Temoignage[] = [
     id: 6,
     image: "/images/temoignages/temoignage2.webp",
   },
+   {
+    id: 7,
+    image: "/images/temoignages/temoignage7.webp",
+  },
+   {
+    id: 8,
+    image: "/images/temoignages/temoignage8.webp",
+  },
+   {
+    id: 9,
+    image: "/images/temoignages/temoignage9.webp",
+  },
+   {
+    id: 10,
+    image: "/images/temoignages/temoignage10.webp",
+  },
 ];

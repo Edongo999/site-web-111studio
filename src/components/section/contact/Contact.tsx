@@ -112,6 +112,7 @@ const Contact = () => {
               </motion.h3>
 
               {/* 🔹 Description */}
+
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -139,7 +140,7 @@ const Contact = () => {
             >
               <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
                 <motion.img
-                  src="/images/hero.jpg"
+                  src="/images/hero/hero.webp"
                   alt={t("contact.teamAlt")}
                   className="w-34 h-34 rounded-full border-4 border-green-500 shadow-lg object-cover"
                   initial={{ scale: 1 }}

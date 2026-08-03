@@ -2,16 +2,18 @@ import React from "react";
 import { motion, Variants } from "framer-motion";
 import { ArrowRight, Camera, Film, Palette } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { NavLink } from "react-router-dom";
 
-const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+// =====================================================
+// 🔹 ANIMATIONS
+// =====================================================
 
 const containerVariants: Variants = {
-  hidden: { opacity: 1 },
+  hidden: {},
   show: {
-    opacity: 1,
     transition: {
-      staggerChildren: isMobile ? 0.5 : 0.25,
-      delayChildren: isMobile ? 0.3 : 0.1,
+      staggerChildren: 0.18,
+      delayChildren: 0.15,
     },
   },
 };
@@ -19,16 +21,14 @@ const containerVariants: Variants = {
 const itemVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: isMobile ? 60 : 40,
-    scale: 0.98,
+    y: 35,
   },
 
   show: {
     opacity: 1,
     y: 0,
-    scale: 1,
     transition: {
-      duration: isMobile ? 1 : 0.8,
+      duration: 0.9,
       ease: [0.25, 0.1, 0.25, 1],
     },
   },
@@ -37,21 +37,29 @@ const itemVariants: Variants = {
 const titleVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 40,
+    y: 30,
   },
 
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 1.2,
+      duration: 1,
       ease: [0.25, 0.1, 0.25, 1],
     },
   },
 };
 
+// =====================================================
+// 🔹 COMPOSANT
+// =====================================================
+
 const ServicesPreview: React.FC = () => {
   const { t } = useTranslation();
+
+  // =====================================================
+  // 🔹 SERVICES
+  // =====================================================
 
   const services = [
     {
@@ -71,23 +79,34 @@ const ServicesPreview: React.FC = () => {
     },
   ];
 
+  // =====================================================
+  // 🔹 STYLE DES CARTES
+  // =====================================================
+
   const cardClassBase =
     "group rounded-xl p-8 min-h-[230px] flex flex-col items-center justify-center text-center bg-black/40 backdrop-blur-md border border-white/10 shadow-lg transition duration-300 relative";
 
   const cardHoverClasses =
     "cursor-pointer hover:scale-[1.05] hover:shadow-xl hover:bg-black/60";
 
+  // =====================================================
+  // 🔹 RENDER
+  // =====================================================
+
   return (
     <section className="bg-gray-800 text-white px-6 sm:px-8 py-12">
       <div className="w-full max-w-6xl mx-auto space-y-10">
-        {/* TITLE */}
+        {/* ================================================= */}
+        {/* 🔹 TITRE */}
+        {/* ================================================= */}
+
         <motion.div
           variants={titleVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{
             once: true,
-            amount: 0.6,
+            amount: 0.3,
           }}
           className="flex justify-center"
         >
@@ -108,9 +127,10 @@ const ServicesPreview: React.FC = () => {
           </h2>
         </motion.div>
 
-        {/* INTRO */}
+        {/* ================================================= */}
+        {/* 🔹 INTRODUCTION */}
+        {/* ================================================= */}
 
-        {/* INTRO */}
         <motion.p
           lang="fr"
           variants={itemVariants}
@@ -118,23 +138,26 @@ const ServicesPreview: React.FC = () => {
           whileInView="show"
           viewport={{
             once: true,
-            amount: 0.4,
+            amount: 0.25,
           }}
           className="
-    text-gray-100
-    text-lg
-    md:text-xl
-    leading-relaxed
-    text-justify
-    hyphens-auto
-    break-normal
-    [overflow-wrap:break-word]
-  "
+            text-gray-100
+            text-lg
+            md:text-xl
+            leading-relaxed
+            text-justify
+            hyphens-auto
+            break-normal
+            [overflow-wrap:break-word]
+          "
         >
           {t("servicesHero.intro")}
         </motion.p>
 
-        {/* 3 CARDS */}
+        {/* ================================================= */}
+        {/* 🔹 3 CARTES */}
+        {/* ================================================= */}
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -154,7 +177,10 @@ const ServicesPreview: React.FC = () => {
                 variants={itemVariants}
                 className={`${cardClassBase} ${cardHoverClasses}`}
               >
-                {/* ICÔNE */}
+                {/* ================================================= */}
+                {/* 🔹 ICÔNE */}
+                {/* ================================================= */}
+
                 <div
                   className="
                     flex
@@ -174,7 +200,10 @@ const ServicesPreview: React.FC = () => {
                   <Icon size={26} className="text-white" />
                 </div>
 
-                {/* TITRE */}
+                {/* ================================================= */}
+                {/* 🔹 TITRE */}
+                {/* ================================================= */}
+
                 <h3
                   className="
                     text-lg
@@ -189,7 +218,10 @@ const ServicesPreview: React.FC = () => {
                   {block.title}
                 </h3>
 
-                {/* DESCRIPTION */}
+                {/* ================================================= */}
+                {/* 🔹 DESCRIPTION */}
+                {/* ================================================= */}
+
                 <p
                   className="
                     text-gray-300
@@ -201,7 +233,10 @@ const ServicesPreview: React.FC = () => {
                   {block.description}
                 </p>
 
-                {/* BARRE ANIMÉE */}
+                {/* ================================================= */}
+                {/* 🔹 BARRE ANIMÉE */}
+                {/* ================================================= */}
+
                 <div
                   className="
                     absolute
@@ -225,27 +260,42 @@ const ServicesPreview: React.FC = () => {
           })}
         </motion.div>
 
-        {/* CTA */}
-        {/* CTA */}
-        <div className="flex justify-center mt-10">
-          <a
-            href="/services"
+        {/* ================================================= */}
+        {/* 🔹 CTA */}
+        {/* ================================================= */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          transition={{
+            duration: 0.9,
+            delay: 0.2,
+            ease: [0.25, 0.1, 0.25, 1],
+          }}
+          className="flex justify-center mt-10"
+        >
+          <NavLink
+            to="/services"
             className="
-      group
-      inline-flex
-      items-center
-      gap-3
-      px-8
-      py-4
-      bg-green-600
-      hover:bg-orange-500
-      text-white
-      rounded-lg
-      shadow-lg
-      transition-all
-      duration-300
-      hover:-translate-y-0.5
-    "
+    group
+    inline-flex
+    items-center
+    gap-3
+    px-8
+    py-4
+    bg-green-600
+    hover:bg-orange-500
+    text-white
+    rounded-lg
+    shadow-lg
+    transition-all
+    duration-300
+    hover:-translate-y-0.5
+  "
           >
             <span>{t("servicesHero.cta")}</span>
 
@@ -253,13 +303,13 @@ const ServicesPreview: React.FC = () => {
               size={20}
               strokeWidth={2}
               className="
-        transition-transform
-        duration-300
-        group-hover:translate-x-1
-      "
+      transition-transform
+      duration-300
+      group-hover:translate-x-1
+    "
             />
-          </a>
-        </div>
+          </NavLink>
+        </motion.div>
       </div>
     </section>
   );

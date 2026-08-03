@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 const images = [
-  "/images/fume1.jpg",
-  "/images/fume2.jpg",
-  "/images/service.webp",
-  "/images/hero9.jpg",
+  "/images/hero/fume1.webp",
+  "/images/hero/service1.webp",
+  "/images/hero/service.webp",
+  "/images/hero/hero9.webp",
 ];
 
 const ServicesHero: React.FC = () => {

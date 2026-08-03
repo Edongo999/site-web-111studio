@@ -1,13 +1,15 @@
+/* eslint-disable react-hooks/static-components */
 import React from "react";
 import ServicesHero from "@/components/section/services/ServicesHero";
 import Services from "@/components/section/services/services";
 import Packs from "@/components/section/services/Packs";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { NavLink } from "react-router-dom";
 
 const ServicesPage = () => {
   const { t } = useTranslation();
-
+  const MotionNavLink = motion(NavLink);
   return (
     <main className="bg-gray-900 text-white min-h-screen">
       {/* HERO SERVICES */}
@@ -45,22 +47,22 @@ const ServicesPage = () => {
             {t("contactCTA.title")}
           </motion.h2>
 
-          <motion.a
-            href="/contact"
+          <MotionNavLink
+            to="/contact"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{
-              once: true,
-              amount: 0.2,
-            }}
-            transition={{
-              duration: 1,
-              ease: [0.25, 0.1, 0.25, 1],
-            }}
-            className="inline-block px-8 py-4 bg-white text-orange-600 font-semibold rounded-lg shadow-lg hover:bg-green-500 hover:text-white transition"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+            className="
+    inline-block px-8 py-4
+    bg-white text-orange-600 font-semibold
+    rounded-lg shadow-lg
+    hover:bg-green-500 hover:text-white
+    transition
+  "
           >
             {t("contactCTA.cta")}
-          </motion.a>
+          </MotionNavLink>
         </div>
       </section>
     </main>

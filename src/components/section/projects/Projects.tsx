@@ -7,14 +7,30 @@ import { motion, Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useProjectsData } from "./ProjectsData";
 import CinematicTitle from "@/components/section/projects/CinematicTitle";
-import ProjectsHero from "./ProjectsHero"; // ✅ import du nouveau composant
+import ProjectsHero from "./ProjectsHero";
 
 const mainTitleVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: {
+    opacity: 0,
+    y: 40,
+  },
+
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 1.2, ease: [0.25, 0.1, 0.25, 1] },
+    transition: {
+      duration: 1.2,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
+};
+// ✅ Correction : définir correctement les variants pour les paragraphes
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
   },
 };
 
@@ -23,34 +39,68 @@ const Projects: React.FC = () => {
   const projects = useProjectsData();
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
-  const revealRef = useReveal({ stagger: 120, mode: "smooth" });
+  const revealRef = useReveal({
+    stagger: 120,
+    mode: "smooth",
+  });
 
-  // Filtrage par catégories
+  /* =========================================
+     PROJETS VALIDES
+  ========================================= */
+
   const validProjects = projects.filter((p) => p && typeof p === "object");
-  const mariages = validProjects.filter((p) => p.category === "Mariage");
-  const anniversaires = validProjects.filter(
-    (p) => p.category === "Anniversaire",
-  );
-  const portraits = validProjects.filter((p) => p.category === "Portrait");
-  const evenements = validProjects.filter((p) => p.category === "Événement");
-  const artistiques = validProjects.filter((p) => p.category === "Artistique");
+
+  /* =========================================
+     FILTRAGE DES CATÉGORIES
+     
+     IMPORTANT :
+     Les valeurs correspondent maintenant
+     aux catégories de ProjectCard.
+  ========================================= */
+
+  const mariages = validProjects.filter((p) => p.category === "wedding");
+
+  const anniversaires = validProjects.filter((p) => p.category === "birthday");
+
+  const portraits = validProjects.filter((p) => p.category === "portrait");
+
+  const evenements = validProjects.filter((p) => p.category === "event");
+
+  const artistiques = validProjects.filter((p) => p.category === "artistic");
+
+  const shootings = validProjects.filter((p) => p.category === "shooting");
+
+  const brandings = validProjects.filter((p) => p.category === "branding");
+
+  /* =========================================
+     OUVRIR UN PROJET
+  ========================================= */
 
   const openProject = (project: Project, startIndex = 0) => {
     setSelectedProject(project);
     setCurrentIndex(startIndex);
   };
 
+  /* =========================================
+     FERMER LE MODAL
+  ========================================= */
+
   const closeModal = () => {
     setSelectedProject(null);
     setCurrentIndex(0);
   };
 
-  // KEYBOARD NAVIGATION
+  /* =========================================
+     NAVIGATION CLAVIER
+  ========================================= */
+
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (!selectedProject) return;
+
       if (e.key === "ArrowLeft") {
         setCurrentIndex(
           (i) =>
@@ -58,66 +108,102 @@ const Projects: React.FC = () => {
             selectedProject.medias.length,
         );
       }
+
       if (e.key === "ArrowRight") {
         setCurrentIndex((i) => (i + 1) % selectedProject.medias.length);
       }
-      if (e.key === "Escape") closeModal();
+
+      if (e.key === "Escape") {
+        closeModal();
+      }
     };
+
     window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
+
+    return () => {
+      window.removeEventListener("keydown", handler);
+    };
   }, [selectedProject]);
 
   return (
     <>
-      {/* ✅ Hero section en haut */}
+      {/* =========================================
+          HERO
+      ========================================= */}
+
       <ProjectsHero />
 
-      {/* Contenu principal */}
+      {/* =========================================
+          CONTENU PRINCIPAL
+      ========================================= */}
+
       <section className="relative min-h-screen bg-gray-900 text-white px-6 sm:px-8 pt-12 pb-16">
         <div
           className="max-w-6xl mx-auto space-y-12"
           ref={revealRef as React.RefObject<HTMLDivElement>}
         >
-          {/* MAIN TITLE */}
+          {/* =========================================
+              TITRE PRINCIPAL
+          ========================================= */}
+
           <div className="text-center">
             <motion.h2
               variants={mainTitleVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.6 }}
-              className="text-2xl sm:text-3xl font-bold px-6 py-2 rounded-lg text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-green-400 to-white animate-gradient-x"
+              viewport={{
+                once: true,
+                amount: 0.6,
+              }}
+              className="
+                text-2xl
+                sm:text-3xl
+                font-bold
+                px-6
+                py-2
+                rounded-lg
+                text-transparent
+                bg-clip-text
+                bg-gradient-to-r
+                from-green-600
+                via-green-400
+                to-white
+                animate-gradient-x
+              "
             >
               {t("projects.title1")}
             </motion.h2>
           </div>
 
-          {/* INTRO */}
+          {/* =========================================
+              INTRODUCTION
+          ========================================= */}
           <motion.p
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true, amount: 0.4 }}
-  className="
-    text-gray-100
-    text-lg
-    md:text-xl
-    leading-relaxed
-    text-center
-    max-w-2xl
-    mx-auto
-    px-4
-  "
->
-  {t("projects.intro1")}
-</motion.p>
+            variants={itemVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.25 }}
+            className="
+                        text-gray-100
+                        text-lg
+                        md:text-xl
+                        leading-relaxed
+                        text-justify
+                        hyphens-auto
+                        break-normal
+                        [overflow-wrap:break-word]
+                      "
+          >
+            {t("projects.intro1")}
+          </motion.p>
+          {/* =========================================
+              MARIAGE
+          ========================================= */}
 
-     
-
-          
-
-          {/* SECTIONS */}
           {mariages.length > 0 && (
             <div>
-              <CinematicTitle textKey="projects.categories.mariage" />
+              <CinematicTitle textKey="projects.categories.wedding" />
+
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {mariages.map((project, idx) => (
                   <div
@@ -133,6 +219,7 @@ const Projects: React.FC = () => {
                         const start = project.medias.findIndex(
                           (m) => m.src === media.src,
                         );
+
                         openProject(project, start >= 0 ? start : 0);
                       }}
                     />
@@ -142,9 +229,14 @@ const Projects: React.FC = () => {
             </div>
           )}
 
+          {/* =========================================
+              ANNIVERSAIRE
+          ========================================= */}
+
           {anniversaires.length > 0 && (
             <div>
-              <CinematicTitle textKey="projects.categories.anniversaire" />
+              <CinematicTitle textKey="projects.categories.birthday" />
+
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {anniversaires.map((project, idx) => (
                   <div
@@ -160,6 +252,7 @@ const Projects: React.FC = () => {
                         const start = project.medias.findIndex(
                           (m) => m.src === media.src,
                         );
+
                         openProject(project, start >= 0 ? start : 0);
                       }}
                     />
@@ -169,9 +262,14 @@ const Projects: React.FC = () => {
             </div>
           )}
 
+          {/* =========================================
+              PORTRAIT
+          ========================================= */}
+
           {portraits.length > 0 && (
             <div>
               <CinematicTitle textKey="projects.categories.portrait" />
+
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {portraits.map((project, idx) => (
                   <div
@@ -187,6 +285,7 @@ const Projects: React.FC = () => {
                         const start = project.medias.findIndex(
                           (m) => m.src === media.src,
                         );
+
                         openProject(project, start >= 0 ? start : 0);
                       }}
                     />
@@ -196,9 +295,14 @@ const Projects: React.FC = () => {
             </div>
           )}
 
+          {/* =========================================
+              ÉVÉNEMENT
+          ========================================= */}
+
           {evenements.length > 0 && (
             <div>
-              <CinematicTitle textKey="projects.categories.événement" />
+              <CinematicTitle textKey="projects.categories.event" />
+
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {evenements.map((project, idx) => (
                   <div
@@ -214,6 +318,7 @@ const Projects: React.FC = () => {
                         const start = project.medias.findIndex(
                           (m) => m.src === media.src,
                         );
+
                         openProject(project, start >= 0 ? start : 0);
                       }}
                     />
@@ -223,9 +328,14 @@ const Projects: React.FC = () => {
             </div>
           )}
 
+          {/* =========================================
+              ARTISTIQUE
+          ========================================= */}
+
           {artistiques.length > 0 && (
             <div>
-              <CinematicTitle textKey="projects.categories.artistique" />
+              <CinematicTitle textKey="projects.categories.artistic" />
+
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {artistiques.map((project, idx) => (
                   <div
@@ -241,6 +351,73 @@ const Projects: React.FC = () => {
                         const start = project.medias.findIndex(
                           (m) => m.src === media.src,
                         );
+
+                        openProject(project, start >= 0 ? start : 0);
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* =========================================
+              SHOOTING
+          ========================================= */}
+
+          {shootings.length > 0 && (
+            <div>
+              <CinematicTitle textKey="projects.categories.shooting" />
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {shootings.map((project, idx) => (
+                  <div
+                    id={`shooting-${idx}`}
+                    key={`shooting-${idx}`}
+                    className="relative reveal"
+                    data-reveal-index={idx}
+                  >
+                    <ProjectCard
+                      project={project}
+                      isVertical={true}
+                      onSelectMedia={(media) => {
+                        const start = project.medias.findIndex(
+                          (m) => m.src === media.src,
+                        );
+
+                        openProject(project, start >= 0 ? start : 0);
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* =========================================
+              BRANDING
+          ========================================= */}
+
+          {brandings.length > 0 && (
+            <div>
+              <CinematicTitle textKey="projects.categories.branding" />
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {brandings.map((project, idx) => (
+                  <div
+                    id={`branding-${idx}`}
+                    key={`branding-${idx}`}
+                    className="relative reveal"
+                    data-reveal-index={idx}
+                  >
+                    <ProjectCard
+                      project={project}
+                      isVertical={true}
+                      onSelectMedia={(media) => {
+                        const start = project.medias.findIndex(
+                          (m) => m.src === media.src,
+                        );
+
                         openProject(project, start >= 0 ? start : 0);
                       }}
                     />
@@ -251,7 +428,10 @@ const Projects: React.FC = () => {
           )}
         </div>
 
-        {/* MODAL */}
+        {/* =========================================
+            MODAL
+        ========================================= */}
+
         {selectedProject &&
           selectedProject.medias &&
           selectedProject.medias.length > 0 && (

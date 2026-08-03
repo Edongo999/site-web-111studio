@@ -16,7 +16,7 @@ export default function Navbar() {
       <div className="flex items-center justify-between w-full">
         {/* Logo */}
         {/* Logo texte temporaire */}
-        <div className="text-2xl font-bold tracking-wide">111 STUDIO</div>
+        <div className="text-xl font-bold tracking-wide">111 STUDIO</div>
 
         {/* Menus déplacés vers la gauche, juste après le logo */}
         <div className="hidden md:flex items-center ml-12 space-x-4">
