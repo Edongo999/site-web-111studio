@@ -46,7 +46,7 @@ const ServicesHero: React.FC = () => {
       </AnimatePresence>
 
       {/* Overlay sombre */}
-      <div className="absolute inset-0 bg-black/70"></div>
+      <div className="absolute inset-0 bg-black/50"></div>
 
       {/* Texte animé */}
       <div className="relative z-10 text-center max-w-2xl px-6">

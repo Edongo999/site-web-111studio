@@ -34,6 +34,7 @@
 "about": {
   "title": "À PROPOS DE 111 STUDIO",
   "subtitle": "Votre histoire mérite d’être racontée avec élégance et authenticité",
+  "videoOpen": "Cliquer pour ouvrir",
   "mainImage": "/images/about.jpg",
   "mainImageAlt": "Image principale corporate",
   "secondaryPhoto": "/images/hero8.jpg",
@@ -85,7 +86,8 @@
 
 
   "servicesPage": {
-    "title": "Des solutions visuelles adaptées à vos besoins",
+     "title": "Des solutions visuelles adaptées à vos besoins",
+     "title1": "à vos besoins",
     "intro": "Nous combinons créativité et expertise technique pour offrir des services qui valorisent votre image et captivent votre audience. Chaque projet est conçu pour raconter une histoire, transmettre des émotions et créer un impact durable.",
     
     "photography": {

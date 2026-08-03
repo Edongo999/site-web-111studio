@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Button from "@/components/ui/Button";
+import Button from "@components/ui/Button";
 import { useTranslation } from "react-i18next";
 import { motion, Variants } from "framer-motion";
 import { FaLinkedin, FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
   const sideMedia = [
     { type: "image", src: "/images/hero2.jpg" },
     { type: "image", src: "/images/hero3.jpg" },
-    { type: "video", src: "/videos/about1.mp4" }, // ✅ Une seule vidéo
+    { type: "video", src: "/videos/about1.mp4" },
     { type: "image", src: "/images/hero4.jpg" },
   ];
 
@@ -26,59 +26,70 @@ const Hero: React.FC = () => {
   const slogans: string[] = t("hero.slogans", {
     returnObjects: true,
   }) as string[];
+
   const [sloganIndex, setSloganIndex] = useState(0);
 
   // 🔹 Cycle gauche
   useEffect(() => {
     if (isLeftPlayingVideo) return;
+
     const interval = setInterval(() => {
       let nextIndex = (leftIndex + 1) % sideMedia.length;
-      // 🔹 Si une vidéo joue à droite, le côté gauche ignore les vidéos
+
       if (isRightPlayingVideo) {
         while (sideMedia[nextIndex].type === "video") {
           nextIndex = (nextIndex + 1) % sideMedia.length;
         }
       }
+
       setLeftIndex(nextIndex);
     }, 4000);
+
     return () => clearInterval(interval);
   }, [isLeftPlayingVideo, isRightPlayingVideo, leftIndex]);
 
   // 🔹 Cycle droit
   useEffect(() => {
     if (isRightPlayingVideo) return;
+
     const interval = setInterval(() => {
       let nextIndex = (rightIndex + 1) % sideMedia.length;
-      // 🔹 Si une vidéo joue à gauche, le côté droit ignore les vidéos
+
       if (isLeftPlayingVideo) {
         while (sideMedia[nextIndex].type === "video") {
           nextIndex = (nextIndex + 1) % sideMedia.length;
         }
       }
+
       setRightIndex(nextIndex);
     }, 4000);
+
     return () => clearInterval(interval);
   }, [isRightPlayingVideo, isLeftPlayingVideo, rightIndex]);
 
-  // 🔹 Cycle slogans (toujours actif, jamais bloqué)
+  // 🔹 Cycle slogans
   useEffect(() => {
     const interval = setInterval(() => {
       setSloganIndex((prev) => (prev + 1) % slogans.length);
     }, 4000);
+
     return () => clearInterval(interval);
   }, [slogans.length]);
-  // 🔹 Cycle mobile (slider plein écran derrière le texte)
+
+  // 🔹 Cycle mobile
   useEffect(() => {
-    if (isLeftPlayingVideo) return; // 🔹 Bloque si une vidéo joue
+    if (isLeftPlayingVideo) return;
+
     const interval = setInterval(() => {
-      // eslint-disable-next-line prefer-const
-      let nextIndex = (leftIndex + 1) % sideMedia.length;
-      // 🔹 Sur mobile, si la prochaine est une vidéo, on attend qu’elle se termine
+      const nextIndex = (leftIndex + 1) % sideMedia.length;
+
       if (sideMedia[nextIndex].type === "video") {
-        return; // on ne change pas tant que la vidéo n’est pas finie
+        return;
       }
+
       setLeftIndex(nextIndex);
     }, 4000);
+
     return () => clearInterval(interval);
   }, [isLeftPlayingVideo, leftIndex]);
 
@@ -87,7 +98,11 @@ const Hero: React.FC = () => {
     visible: (i: number = 0) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.3, duration: 1.6, ease: "easeOut" },
+      transition: {
+        delay: i * 0.3,
+        duration: 1.6,
+        ease: "easeOut",
+      },
     }),
   };
 
@@ -96,7 +111,6 @@ const Hero: React.FC = () => {
       id="hero"
       className="relative h-screen bg-black text-white overflow-hidden flex items-center justify-center"
     >
-      {/* 🔹 Version mobile : slider plein écran */}
       {/* 🔹 Version mobile : slider plein écran */}
       <div className="absolute inset-0 h-full block md:hidden">
         {sideMedia[leftIndex].type === "image" ? (
@@ -111,8 +125,8 @@ const Hero: React.FC = () => {
             autoPlay
             muted
             playsInline
-            loop={false} // 🔹 pas obligatoire, mais utile si tu veux que ça rejoue
-            preload="auto" // 🔹 aide à charger la vidéo avant lecture
+            loop={false}
+            preload="auto"
             className="w-full h-full object-cover"
             onPlay={() => setIsLeftPlayingVideo(true)}
             onEnded={() => {
@@ -121,7 +135,8 @@ const Hero: React.FC = () => {
             }}
           />
         )}
-        <div className="absolute inset-0 bg-black/70"></div>
+
+        <div className="absolute inset-0 bg-black/20"></div>
       </div>
 
       {/* 🔹 Version desktop */}
@@ -148,16 +163,18 @@ const Hero: React.FC = () => {
               }}
             />
           )}
-          <div className="absolute inset-0 bg-black/5"></div>
+
+          <div className="w-full h-full flex items-center justify-center bg-black/10 md:bg-black/50 px-6 md:px-12"></div>
         </div>
 
-        {/* Colonne centrale (fixe) */}
+        {/* Colonne centrale */}
         <div className="w-3/5 h-full relative">
           <img
             src={centerImage}
             alt={t("hero.imageAlt")}
             className="w-full h-full object-cover object-top"
           />
+
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
 
@@ -183,14 +200,28 @@ const Hero: React.FC = () => {
               }}
             />
           )}
+
           <div className="absolute inset-0 bg-black/5"></div>
         </div>
       </div>
 
       {/* 🔹 Texte par-dessus */}
-      <div className="absolute inset-0 flex items-center justify-center z-10">
+      <div className="absolute inset-0 flex items-center justify-center z-10 ">
         <div className="w-full h-full flex items-center justify-center bg-black/50 px-6 md:px-12">
-          <div className="max-w-2xl space-y-5 rounded-lg p-6 text-center -mb-25">
+          <div
+            className="
+    max-w-2xl
+    space-y-5
+    rounded-lg
+    p-6
+    text-center
+    translate-y-10
+    sm:translate-y-8
+    md:translate-y-0
+    md:-mb-25
+  "
+          >
+            {/* 🔹 Titre */}
             <motion.h1
               className="font-extrabold text-[clamp(2.5rem,6vw,3.5rem)] leading-tight"
               variants={cascadeVariant}
@@ -201,6 +232,7 @@ const Hero: React.FC = () => {
               <span className="text-white">{t("hero.title")}</span>
             </motion.h1>
 
+            {/* 🔹 Slogan */}
             <motion.h2
               className="text-green-600 text-xl leading-tight font-bold"
               key={sloganIndex}
@@ -212,6 +244,7 @@ const Hero: React.FC = () => {
               {slogans[sloganIndex]}
             </motion.h2>
 
+            {/* 🔹 Description */}
             <motion.p
               className="text-gray-200 text-lg leading-relaxed text-justify"
               variants={cascadeVariant}
@@ -222,8 +255,18 @@ const Hero: React.FC = () => {
               {t("hero.description")}
             </motion.p>
 
+            {/* 🔹 Boutons */}
             <motion.div
-              className="flex flex-col md:flex-row md:items-center md:justify-center md:space-x-4 space-y-4 md:space-y-0"
+              className="
+                flex
+                flex-col
+                md:flex-row
+                md:items-center
+                md:justify-center
+                md:space-x-4
+                space-y-4
+                md:space-y-0
+              "
               variants={cascadeVariant}
               initial="hidden"
               animate="visible"
@@ -236,6 +279,7 @@ const Hero: React.FC = () => {
                   className="w-full bg-orange-600 hover:bg-orange-700 text-white"
                 />
               </a>
+
               <a href="#contact" className="w-full md:w-auto">
                 <Button
                   text={t("hero.btnContact")}
@@ -245,35 +289,162 @@ const Hero: React.FC = () => {
               </a>
             </motion.div>
 
-            {/* Icônes réseaux sociaux */}
-            <div className="flex justify-center space-x-6 mt-6 text-2xl text-gray-200">
+            {/* 🔹 Icônes réseaux sociaux */}
+            <div className="flex justify-center items-center gap-6 mt-6 text-2xl text-gray-200">
+              {/* LinkedIn */}
               <a
                 href={t("hero.linkedinUrl")}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={t("hero.socialTooltips.linkedin")}
+                className="relative group"
               >
-                <FaLinkedin className="hover:text-orange-500 transition-colors" />
+                <FaLinkedin className="hover:text-orange-500 transition-colors duration-300" />
+
+                <span
+                  className="
+                    absolute
+                    bottom-full
+                    left-1/2
+                    -translate-x-1/2
+                    mb-3
+                    px-3
+                    py-1.5
+                    rounded-md
+                    bg-black/90
+                    border border-white/10
+                    text-white
+                    text-xs
+                    whitespace-nowrap
+                    opacity-0
+                    invisible
+                    group-hover:opacity-100
+                    group-hover:visible
+                    transition-all
+                    duration-200
+                    pointer-events-none
+                    shadow-lg
+                  "
+                >
+                  {t("hero.socialTooltips.linkedin")}
+                </span>
               </a>
+
+              {/* Facebook */}
               <a
                 href={t("hero.facebookUrl")}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={t("hero.socialTooltips.facebook")}
+                className="relative group"
               >
-                <FaFacebook className="hover:text-orange-500 transition-colors" />
+                <FaFacebook className="hover:text-orange-500 transition-colors duration-300" />
+
+                <span
+                  className="
+                    absolute
+                    bottom-full
+                    left-1/2
+                    -translate-x-1/2
+                    mb-3
+                    px-3
+                    py-1.5
+                    rounded-md
+                    bg-black/90
+                    border border-white/10
+                    text-white
+                    text-xs
+                    whitespace-nowrap
+                    opacity-0
+                    invisible
+                    group-hover:opacity-100
+                    group-hover:visible
+                    transition-all
+                    duration-200
+                    pointer-events-none
+                    shadow-lg
+                  "
+                >
+                  {t("hero.socialTooltips.facebook")}
+                </span>
               </a>
+
+              {/* Instagram */}
               <a
                 href={t("hero.instagramUrl")}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={t("hero.socialTooltips.instagram")}
+                className="relative group"
               >
-                <FaInstagram className="hover:text-orange-500 transition-colors" />
+                <FaInstagram className="hover:text-orange-500 transition-colors duration-300" />
+
+                <span
+                  className="
+                    absolute
+                    bottom-full
+                    left-1/2
+                    -translate-x-1/2
+                    mb-3
+                    px-3
+                    py-1.5
+                    rounded-md
+                    bg-black/90
+                    border border-white/10
+                    text-white
+                    text-xs
+                    whitespace-nowrap
+                    opacity-0
+                    invisible
+                    group-hover:opacity-100
+                    group-hover:visible
+                    transition-all
+                    duration-200
+                    pointer-events-none
+                    shadow-lg
+                  "
+                >
+                  {t("hero.socialTooltips.instagram")}
+                </span>
               </a>
+
+              {/* TikTok */}
               <a
                 href={t("hero.tiktokUrl")}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={t("hero.socialTooltips.tiktok")}
+                className="relative group"
               >
-                <FaTiktok className="hover:text-orange-500 transition-colors" />
+                <FaTiktok className="hover:text-orange-500 transition-colors duration-300" />
+
+                <span
+                  className="
+                    absolute
+                    bottom-full
+                    left-1/2
+                    -translate-x-1/2
+                    mb-3
+                    px-3
+                    py-1.5
+                    rounded-md
+                    bg-black/90
+                    border border-white/10
+                    text-white
+                    text-xs
+                    whitespace-nowrap
+                    opacity-0
+                    invisible
+                    group-hover:opacity-100
+                    group-hover:visible
+                    transition-all
+                    duration-200
+                    pointer-events-none
+                    shadow-lg
+                  "
+                >
+                  {t("hero.socialTooltips.tiktok")}
+                </span>
               </a>
             </div>
           </div>

@@ -72,7 +72,7 @@ const ProjectCard: React.FC<Props> = ({
   }, [registerVideo, currentIndex]);
 
   const currentMedia = project.medias[currentIndex];
-  const previewHeight = isVertical ? "h-50 md:h-60" : "h-72 sm:h-70 md:h-89";
+  const previewHeight = isVertical ? "h-55 md:h-65" : "h-72 sm:h-70 md:h-89";
 
   const categoryColors: Record<string, string> = {
     Mariage: "bg-pink-500 text-white",

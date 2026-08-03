@@ -124,10 +124,10 @@ const Services = () => {
           className="flex justify-center"
         >
           <h2
-            className="text-2xl sm:text-3xl font-extrabold text-transparent bg-clip-text 
-               bg-gradient-to-r from-orange-100 via-green-200 to-white"
+            className="text-2xl sm:text-3xl font-extrabold text-center text-transparent bg-clip-text 
+             bg-gradient-to-r from-orange-100 via-green-200 to-white"
           >
-            {t("servicesPage.title")}
+            {t("servicesPage.title")} <br /> {t("servicesPage.title1")}
           </h2>
         </motion.div>
 

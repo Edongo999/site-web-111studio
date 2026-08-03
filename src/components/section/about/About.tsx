@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion, Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import ModalPortal from "@components/section/projects/ModalPortal";
 
 const About: React.FC = () => {
   const { t } = useTranslation();
+
+  // 🔹 Gestion de l'ouverture de la vidéo
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   const cascadeVariant: Variants = {
     hidden: { opacity: 0, y: 20 },
@@ -17,55 +21,41 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="min-h-screen bg-gray-900 text-white px-8 py-16"
+      className="min-h-screen bg-gray-900 px-8 py-16 text-white"
     >
-      <div className="max-w-6xl mx-auto space-y-12">
-        {/* 🔹 Titre principal de la section */}
+      <div className="mx-auto max-w-6xl space-y-12">
+        {/* 🔹 Titre principal */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-center space-y-4"
+          className="space-y-4 text-center"
         >
           <h2
-            className="text-4xl sm:text-4xl font-extrabold text-transparent bg-clip-text 
-       bg-gradient-to-r from-green-600 via-green-400 to-white"
+            className="
+              bg-gradient-to-r from-green-600 via-green-400 to-white
+              bg-clip-text text-4xl font-extrabold text-transparent
+            "
           >
             {t("about.title")}
           </h2>
 
-          {/* 🔹 Sous-titre (subtitle) */}
-          {/* 🔹 Sous-titre avec icônes de citation */}
-          {/* 🔹 Sous-titre avec icônes de citation */}
+          {/* 🔹 Sous-titre */}
           <div className="flex justify-center px-2 sm:px-4">
             <p
               className="
-      text-lg
-      sm:text-xl
-      text-gray-300
-      italic
-      leading-relaxed
-      text-center
-      inline-flex
-      items-start
-      justify-center
-      max-w-3xl
-    "
+                inline-flex max-w-3xl items-start justify-center
+                text-center text-lg italic leading-relaxed text-gray-300
+                sm:text-xl
+              "
             >
               {/* Citation gauche */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="
-        flex-shrink-0
-        w-5
-        h-5
-        sm:w-6
-        sm:h-6
-       -mr-2
-        sm:mr-2
-        -translate-y-1
-        animate-quoteColor
-      "
+                  -mr-2 h-5 w-5 flex-shrink-0 -translate-y-1
+                  animate-quoteColor sm:mr-2 sm:h-6 sm:w-6
+                "
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -73,24 +63,15 @@ const About: React.FC = () => {
                 <path d="M7 17h3l2-7V5H6v5h3l-2 7zm7 0h3l2-7V5h-6v5h3l-2 7z" />
               </svg>
 
-              {/* Texte */}
               <span>{t("about.subtitle")}</span>
 
               {/* Citation droite */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="
-        flex-shrink-0
-        w-5
-        h-5
-        sm:w-6
-        sm:h-6
-        -ml-3
-        sm:ml-2
-        translate-y-1
-        rotate-180
-        animate-quoteColor
-      "
+                  -ml-3 h-5 w-5 flex-shrink-0 translate-y-1 rotate-180
+                  animate-quoteColor sm:ml-2 sm:h-6 sm:w-6
+                "
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -102,69 +83,122 @@ const About: React.FC = () => {
         </motion.div>
 
         {/* 🔹 Contenu : images + texte */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-6">
-          {/* Bloc images corporate */}
+        <div className="mb-6 grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+          {/* ================================================= */}
+          {/* 🔹 BLOC IMAGES */}
+          {/* ================================================= */}
 
-          {/* Bloc images corporate */}
-          <div className="relative w-full h-auto">
+          <div className="relative w-full h-[390px] sm:h-[450px] md:min-h-[500px]">
             {/* Image principale */}
             <motion.img
               src="/images/about.jpg"
               alt={t("about.mainImageAlt")}
               className="
-      w-68 h-80 sm:w-80 sm:h-80 md:w-110 md:h-110
-      object-cover rounded-xl shadow-lg 
-      mt-6 sm:mt-10 md:mt-15 
-      translate-x-0 sm:translate-x-0 md:-translate-x-12
-    "
+                relative top-2 -left-5
+                mt-6 h-80 w-65
+                rounded-xl object-cover shadow-lg
+                sm:mt-10 sm:h-80 sm:w-[320px]
+                md:top-0 md:-left-12 md:mt-15 md:h-110 md:w-110
+              "
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
-              animate={{
-                boxShadow: [
-                  "0 0 15px rgba(255,165,0,0.8)",
-                  "0 0 25px rgba(255,255,255,0.6)",
-                  "0 0 15px rgba(255,165,0,0.8)",
-                ],
-              }}
             />
 
-            {/* Image secondaire 1 */}
+            {/* Image secondaire */}
             <motion.img
               src="/images/hero8.jpg"
               alt={t("about.secondaryPhotoAlt")}
               className="
-      absolute top-4 right-4 
-      w-24 h-25 sm:w-32 sm:h-28 md:w-40 md:h-35
-      object-cover rounded-lg shadow-xl ring-4 ring-white
-      -translate-x-3 sm:translate-x-4 md:translate-x-0
-      translate-y-0 sm:translate-y-2 md:translate-y-0
-    "
+                relative -top-90 -right-55
+                h-25 w-25 rounded-lg object-cover
+                shadow-xl ring-4 ring-white
+                sm:h-30 sm:w-32.5
+                md:absolute md:top-4 md:right-4
+                md:h-35 md:w-40
+              "
               initial={{ opacity: 0, x: 50, y: -20 }}
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
             />
 
-            {/* Vidéo secondaire 2 */}
-            <motion.video
-              src="/videos/about1.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
+            {/* ================================================= */}
+            {/* 🔹 VIDÉO SECONDAIRE */}
+            {/* ================================================= */}
+
+            <div
+              onClick={() => setIsVideoOpen(true)}
+              title={t("about.videoOpen")}
               className="
-    absolute bottom-4 right-4 
-    w-28 h-30 sm:w-40 sm:h-50 md:w-50 md:h-60
-    object-cover rounded-lg shadow-xl ring-4 ring-white 
-    translate-y-0 sm:translate-y-6 md:translate-y-15 
-    translate-x-0 sm:translate-x-4 md:translate-x-5
-  "
-              initial={{ opacity: 0, x: 50, y: 20 }}
-              whileInView={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 1, delay: 0.6 }}
-            />
+                group relative
+                -top-43 left-53
+                h-[120px] w-[120px] cursor-pointer
+                sm:h-[200px] sm:w-[160px]
+                md:absolute md:top-80 md:right-4 md:bottom-4 md:left-93
+                md:h-[240px] md:w-[200px]
+              "
+            >
+              <motion.video
+                src="/videos/about1.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="
+                  h-full w-full rounded-lg object-cover
+                  shadow-xl ring-4 ring-white
+                  transition duration-300
+                  group-hover:scale-[1.03]
+                "
+                initial={{ opacity: 0, x: 50, y: 20 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ duration: 1, delay: 0.6 }}
+              />
+
+              {/* 🔹 Indication au survol */}
+              <div
+                className="
+                  pointer-events-none absolute inset-0 flex items-center
+                  justify-center rounded-lg bg-black/40 opacity-0
+                  transition-opacity duration-300
+                  group-hover:opacity-100
+                "
+              >
+                <div
+                  className="
+                    flex items-center gap-2 rounded-lg bg-black/75
+                    px-3 py-2 text-xs font-medium text-white
+                    shadow-lg backdrop-blur-sm sm:text-sm
+                  "
+                >
+                  {/* Icône Play */}
+                  <span
+                    className="
+                      flex h-7 w-7 items-center justify-center rounded-full
+                      border border-white/30 bg-white/20
+                    "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="ml-0.5 h-3.5 w-3.5"
+                      aria-hidden="true"
+                    >
+                      <path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l9.64-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z" />
+                    </svg>
+                  </span>
+
+                  <span>{t("about.videoOpen")}</span>
+                </div>
+              </div>
+            </div>
           </div>
-          {/* Texte corporate */}
+
+          {/* ================================================= */}
+          {/* 🔹 TEXTE CORPORATE */}
+          {/* ================================================= */}
+
           <motion.div
             variants={cascadeVariant}
             initial="hidden"
@@ -172,15 +206,15 @@ const About: React.FC = () => {
             viewport={{ once: true, amount: 0.4 }}
             className="space-y-6 text-justify"
           >
-            <p className="text-gray-300 leading-relaxed">
+            <p className="leading-relaxed text-gray-300">
               {t("about.paragraph1")}
             </p>
 
-            <p className="text-gray-300 leading-relaxed">
+            <p className="leading-relaxed text-gray-300">
               {t("about.paragraph2")}
             </p>
 
-            <ul className="list-disc list-inside text-gray-300 space-y-2">
+            <ul className="list-inside list-disc space-y-2 text-gray-300">
               <li>{t("about.list.item1")}</li>
               <li>{t("about.list.item2")}</li>
               <li>{t("about.list.item3")}</li>
@@ -188,18 +222,25 @@ const About: React.FC = () => {
             </ul>
 
             {/* Boutons */}
-            <div className="flex gap-4 mt-6">
+            <div className="mt-6 flex gap-4">
               <a
                 href="/projects"
-                className="px-6 py-3 bg-orange-600 text-white font-bold rounded-lg shadow-lg hover:bg-orange-700 transition"
+                className="
+                  rounded-lg bg-orange-600 px-6 py-3 font-bold text-white
+                  shadow-lg transition hover:bg-orange-700
+                "
               >
                 {t("about.buttonPortfolio")}
               </a>
+
               <a
                 href={t("about.buttonBookingLink")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 bg-green-600 text-white font-bold rounded-lg shadow-lg hover:bg-green-700 transition"
+                className="
+                  rounded-lg bg-green-600 px-6 py-3 font-bold text-white
+                  shadow-lg transition hover:bg-green-700
+                "
               >
                 {t("about.buttonBooking")}
               </a>
@@ -207,6 +248,32 @@ const About: React.FC = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* ================================================= */}
+      {/* 🔹 MODAL DE LA VIDÉO */}
+      {/* ================================================= */}
+
+      {isVideoOpen && (
+        <ModalPortal onClose={() => setIsVideoOpen(false)}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.25 }}
+            className="flex w-full items-center justify-center"
+          >
+            <video
+              src="/videos/about1.mp4"
+              controls
+              autoPlay
+              playsInline
+              className="
+                max-h-[85vh] w-full
+                rounded-xl object-contain shadow-2xl
+              "
+            />
+          </motion.div>
+        </ModalPortal>
+      )}
     </section>
   );
 };

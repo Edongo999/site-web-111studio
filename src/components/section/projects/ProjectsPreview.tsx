@@ -153,27 +153,26 @@ const ProjectsPreview: React.FC = () => {
           {/* =========================================
               INTRODUCTION
           ========================================= */}
-
           <motion.p
-            initial="hidden"
-            whileInView="visible"
-            viewport={{
-              once: true,
-              amount: 0.4,
-            }}
-            className="
-              text-gray-100
-              text-lg
-              md:text-xl
-              leading-relaxed
-              text-justify
-              hyphens-auto
-              break-normal
-              [overflow-wrap:break-word]
-            "
-          >
-            {t("projects.intro")}
-          </motion.p>
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.4 }}
+  className="
+    text-gray-100
+    text-lg
+    md:text-xl
+    leading-relaxed
+    text-center
+    max-w-2xl
+    mx-auto
+    px-4
+  "
+>
+  {t("projects.intro")}
+</motion.p>
+
+
+          
 
           {/* =========================================
               SOUS-TITRE

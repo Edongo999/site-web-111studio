@@ -83,15 +83,25 @@ const Packs = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.6 }}
-          className="flex flex-col items-center space-y-4"
+          className="flex flex-col items-center space-y-4 text-center"
         >
           <h2
             className="text-4xl md:text-4xl font-extrabold text-transparent bg-clip-text 
-             bg-gradient-to-r from-gray-100 to-orange-400"
+             bg-gradient-to-r from-gray-100 to-orange-400 text-center"
           >
             {t("packs.title")}
           </h2>
-          <p className="text-gray-100 text-xl md:text-xl leading-relaxed text-left md:text-justify">
+          <p
+            className=" text-gray-100
+    text-lg
+    md:text-xl
+    leading-relaxed
+    text-justify
+    hyphens-auto
+    break-normal
+    [overflow-wrap:break-word]
+         "
+          >
             {t("packs.intro")}
           </p>
         </motion.div>

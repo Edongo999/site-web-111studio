@@ -85,7 +85,7 @@ const Projects: React.FC = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.6 }}
-              className="text-2xl sm:text-4xl font-bold px-6 py-2 rounded-lg text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-green-400 to-white animate-gradient-x"
+              className="text-2xl sm:text-3xl font-bold px-6 py-2 rounded-lg text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-green-400 to-white animate-gradient-x"
             >
               {t("projects.title1")}
             </motion.h2>
@@ -93,13 +93,26 @@ const Projects: React.FC = () => {
 
           {/* INTRO */}
           <motion.p
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.4 }}
-            className="text-gray-100 text-lg md:text-xl leading-relaxed text-left md:text-justify"
-          >
-            {t("projects.intro1")}
-          </motion.p>
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.4 }}
+  className="
+    text-gray-100
+    text-lg
+    md:text-xl
+    leading-relaxed
+    text-center
+    max-w-2xl
+    mx-auto
+    px-4
+  "
+>
+  {t("projects.intro1")}
+</motion.p>
+
+     
+
+          
 
           {/* SECTIONS */}
           {mariages.length > 0 && (

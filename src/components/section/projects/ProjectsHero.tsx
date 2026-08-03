@@ -54,7 +54,7 @@ const ProjectsHero: React.FC = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="text-4xl md:text-4xl font-bold text-white mb-4"
+          className="text-2xl md:text-4xl font-bold text-white mb-4"
         >
           {t("projects.title")}
         </motion.h1>
